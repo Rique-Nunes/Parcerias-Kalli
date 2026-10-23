@@ -1,0 +1,9 @@
+/* Identidade Kalli Agendia: areia #BCA385, bronze #8C7257, grafite #121110, creme #FAF8F6 */
+.kalli-bar{display:flex;gap:.75rem;justify-content:center;align-items:center;flex-wrap:wrap;padding:.6rem 1rem;color:#fff;text-decoration:none;font:800 .78rem/1.3 "Nunito",system-ui,sans-serif;background:linear-gradient(90deg,#BCA385,#8C7257 50%,#BCA385);background-size:200% auto;animation:kshift 6s ease infinite;text-shadow:0 1px 2px rgba(0,0,0,.2)}
+.kalli-bar-tag{text-transform:uppercase;letter-spacing:.08em;background:#121110;padding:.2rem .6rem;border-radius:99px}
+.kalli-bar-go{text-decoration:underline;text-underline-offset:3px}
+@keyframes kshift{50%{background-position:100% 0}}
+.kalli-btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:1rem 2rem;border-radius:999px;font:900 1rem/1 "Nunito",system-ui,sans-serif;text-decoration:none;color:#fff;background:linear-gradient(135deg,#BCA385,#8C7257);box-shadow:0 10px 25px -8px rgba(140,114,87,.7);transition:transform .2s,box-shadow .2s;white-space:nowrap}
+.kalli-btn:hover{transform:translateY(-2px);box-shadow:0 14px 30px -8px rgba(140,114,87,.9)}
+.kalli-btn-sm{padding:.7rem 1.3rem;font-size:.85rem}
+@media(prefers-reduced-motion:reduce){.kalli-bar{animation:none}}
