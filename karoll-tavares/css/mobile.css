@@ -54,11 +54,34 @@
 .field-error:not(:empty)::before{content:'';display:inline-block;vertical-align:-2px;width:16px;height:16px;margin-right:5px;background:currentColor;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round' d='m12 3 10 18H2Zm0 6v5m0 3v.1'/%3E%3C/svg%3E") center/contain no-repeat}
 @media(max-width:1099px){.site-header:not(.is-scrolled){background:var(--ivory);backdrop-filter:none}}
 @media(max-width:860px){
-  .hero h1{font-size:clamp(2.7rem,10vw,4.5rem)}
-  .hero-figure picture img{height:100%;width:100%;max-width:100%;margin:0;object-fit:contain;object-position:center bottom}
-  .hero-badge{top:24px;right:0;width:112px;transform:rotate(-4deg)}
-  .hero-badge img{height:auto;aspect-ratio:1;object-fit:contain}
-  .hero-badge .polaroid-caption{font-size:.72rem}
+  /* One mobile composition: copy and portrait, then full-width actions. */
+  .hero{margin-top:0;padding-top:0}
+  .hero-grid{width:min(100% - 40px,680px);grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);grid-template-rows:auto minmax(250px,auto) auto auto auto;gap:18px 10px;padding:28px 0 32px;align-items:center}
+  .hero-copy{display:contents}
+  .hero-copy .eyebrow{grid-column:1/-1;grid-row:1;margin:0;font-size:.62rem;line-height:1.7;letter-spacing:.15em;max-width:32ch}
+  .hero h1{grid-column:1;grid-row:2;font-size:clamp(2rem,8.6vw,3.7rem);line-height:1.1;letter-spacing:-.055em;margin:0;position:relative;z-index:2;min-width:0;overflow-wrap:anywhere}
+  .hero h1 em{white-space:normal;letter-spacing:-.05em}
+  .hero-figure{grid-column:2;grid-row:2;width:100%;height:clamp(250px,70vw,370px);min-height:0;align-self:center;isolation:isolate}
+  .hero-halo{inset:0;width:100%;height:100%;transform:none;border-radius:150px 150px 14px 14px}
+  .hero-halo::after{inset:6px 6px -6px -6px;border-radius:inherit}
+  .hero-figure picture{position:absolute;inset:0;width:100%;height:100%;overflow:hidden;border-radius:150px 150px 14px 14px}
+  .hero-figure picture img{position:absolute;top:4px;left:50%;width:160%;height:auto;max-width:none;margin:0;translate:-50% 0;object-fit:contain;object-position:top}
+  .hero-badge{top:auto;right:-2px;bottom:6px;width:clamp(70px,21vw,110px);max-width:70%;padding:5px;transform:rotate(-5deg);border-radius:8px}
+  .hero-badge img{width:100%;height:auto;aspect-ratio:1;object-fit:contain;border-radius:4px}
+  .hero-badge .polaroid-caption{display:none}
+  .hero .lead{grid-column:1/-1;grid-row:3;max-width:42ch;margin:2px 0 0;padding:0;background:none;font-size:1rem;line-height:1.6}
+  .hero-actions{grid-column:1/-1;grid-row:4;display:grid;grid-template-columns:minmax(0,1fr);gap:12px;margin:0;min-width:0}
+  .hero-actions .btn{width:100%;min-height:54px;padding:14px 18px;font-size:.9rem;line-height:1.35;white-space:normal}
+  .rio-caption{grid-column:1/-1;grid-row:5;display:flex;align-items:center;gap:14px;width:100%;margin:4px 0 0;padding:16px 18px;border-radius:12px}
+  .rio-caption svg{width:28px;height:28px}
+  .rio-caption strong{font-size:.62rem;letter-spacing:.15em}
+  .rio-caption em{font-size:1.25rem}
+  .hero-note{display:none}
+  .hero-rio{width:100%;height:240px;bottom:0;opacity:.16}
+  .trust{padding-top:20px}
+  .trust-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 14px;padding:20px}
+  .trust-list li{font-size:.8rem;align-items:flex-start;gap:10px;min-width:0}
+  .trust-list svg{width:26px;height:26px}
   #sobre .about-media{height:auto;min-height:440px;display:grid;place-items:center}
   #sobre .about-main{width:100%;height:clamp(440px,120vw,580px);margin:0;object-fit:contain;object-position:center bottom}
   .about-signature{top:40px;font-size:1.4rem}
@@ -72,3 +95,14 @@
 }
 @media(min-width:861px) and (max-width:1099px){.nav-toggle{display:block}.brand-name{font-size:1.8rem}}
 @media(max-width:560px){.students{grid-template-columns:minmax(0,1fr)}.hero-actions .btn{min-height:52px}.form-note{align-items:flex-start}.site-footer{padding-bottom:88px}}
+@media(min-width:561px) and (max-width:860px){
+  .hero-grid{gap:24px 26px;padding-top:36px}
+  .hero-actions{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .hero-copy .eyebrow{font-size:.7rem;max-width:none}
+  .hero h1{font-size:clamp(2.8rem,7.6vw,4rem)}
+}
+@media(max-width:360px){
+  .hero-grid{width:calc(100% - 32px);column-gap:8px}
+  .hero h1{font-size:1.95rem}
+  .trust-list{grid-template-columns:minmax(0,1fr)}
+}
