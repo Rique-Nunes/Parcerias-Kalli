@@ -30,12 +30,34 @@ onScroll();
 /* ---------- Menu mobile ---------- */
 const toggle = $(".nav-toggle");
 const nav = $("#menu");
+const backdrop = document.createElement("button");
+backdrop.type = "button";
+backdrop.className = "nav-backdrop";
+backdrop.setAttribute("aria-label", "Fechar menu");
+backdrop.tabIndex = -1;
+backdrop.hidden = true;
+document.body.append(backdrop);
+
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+const updateMenuSpace = () => header.style.setProperty("--menu-space", `${Math.max(120, window.innerHeight - header.getBoundingClientRect().bottom)}px`);
+window.addEventListener("resize", updateMenuSpace);
+window.addEventListener("scroll", updateMenuSpace, { passive: true });
 const setMenu = (open) => {
+  if (open) updateMenuSpace();
   toggle.setAttribute("aria-expanded", String(open));
   toggle.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
   nav.classList.toggle("is-open", open);
+  backdrop.hidden = !open;
 };
-toggle.addEventListener("click", () => setMenu(toggle.getAttribute("aria-expanded") !== "true"));
+
+backdrop.addEventListener("click", () => {
+  setMenu(false);
+  toggle.focus({ preventScroll: true });
+});
+
+toggle.addEventListener("click", () =>
+  setMenu(toggle.getAttribute("aria-expanded") !== "true")
+);
 $$("#menu a").forEach((a) => a.addEventListener("click", () => setMenu(false)));
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape" && nav.classList.contains("is-open")) {
@@ -44,11 +66,13 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
-const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 document.addEventListener("click", (event) => {
-  if (!header.contains(event.target)) setMenu(false);
+  if (!nav.contains(event.target) && !toggle.contains(event.target)) setMenu(false);
 });
-window.matchMedia("(min-width: 1100px)").addEventListener("change", () => setMenu(false));
+document.addEventListener("focusin", (event) => {
+  if (event.target !== backdrop && !header.contains(event.target)) setMenu(false);
+});
+window.matchMedia("(min-width:1100px)").addEventListener("change", () => setMenu(false));
 
 /* ---------- Menu destaca a seção visível + animação de entrada ---------- */
 if ("IntersectionObserver" in window) {
