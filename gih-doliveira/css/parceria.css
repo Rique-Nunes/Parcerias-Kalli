@@ -31,3 +31,13 @@ ul.ck li:before{content:"✓";position:absolute;left:0;color:var(--bronze);font-
 .logo{display:flex;align-items:center;gap:.7rem}
 .logo img{background:var(--cream);border-radius:12px;padding:3px}
 .klink{color:var(--sand);font-weight:900;text-underline-offset:3px}
+.svg-sprite{position:absolute;width:0;height:0;overflow:hidden}
+svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex:none;vertical-align:middle}
+.icon-back{transform:rotate(180deg)}
+.back{display:inline-flex;align-items:center;gap:5px;min-height:44px}
+ul.ck li{padding-left:0;display:flex;align-items:flex-start;gap:10px}
+ul.ck li:before{content:none}
+ul.ck li svg{margin-top:4px;color:var(--bronze)}
+.dark ul.ck li svg{color:var(--sand)}
+@media(max-width:600px){.top .wrap{gap:12px;flex-wrap:wrap}.logo{font-size:.85rem;letter-spacing:.15em}.card{padding:1.5rem}.hero{padding:3rem 0}.kalli-btn{white-space:normal;padding:1rem 1.3rem}.klink{overflow-wrap:anywhere}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
