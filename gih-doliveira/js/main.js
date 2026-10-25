@@ -30,12 +30,34 @@ onScroll();
 /* ---------- Menu mobile ---------- */
 const toggle = $(".nav-toggle");
 const nav = $("#menu");
+const backdrop = document.createElement("button");
+backdrop.type = "button";
+backdrop.className = "nav-backdrop";
+backdrop.setAttribute("aria-label", "Fechar menu");
+backdrop.tabIndex = -1;
+backdrop.hidden = true;
+document.body.append(backdrop);
+
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+const updateMenuSpace = () => header.style.setProperty("--menu-space", `${Math.max(120, window.innerHeight - header.getBoundingClientRect().bottom)}px`);
+window.addEventListener("resize", updateMenuSpace);
+window.addEventListener("scroll", updateMenuSpace, { passive: true });
 const setMenu = (open) => {
+  if (open) updateMenuSpace();
   toggle.setAttribute("aria-expanded", String(open));
   toggle.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
   nav.classList.toggle("is-open", open);
+  backdrop.hidden = !open;
 };
-toggle.addEventListener("click", () => setMenu(toggle.getAttribute("aria-expanded") !== "true"));
+
+backdrop.addEventListener("click", () => {
+  setMenu(false);
+  toggle.focus({ preventScroll: true });
+});
+
+toggle.addEventListener("click", () =>
+  setMenu(toggle.getAttribute("aria-expanded") !== "true")
+);
 $$("#menu a").forEach((a) => a.addEventListener("click", () => setMenu(false)));
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape" && nav.classList.contains("is-open")) {
@@ -43,6 +65,14 @@ document.addEventListener("keydown", (e) => {
     toggle.focus();
   }
 });
+
+document.addEventListener("click", (event) => {
+  if (!nav.contains(event.target) && !toggle.contains(event.target)) setMenu(false);
+});
+document.addEventListener("focusin", (event) => {
+  if (event.target !== backdrop && !header.contains(event.target)) setMenu(false);
+});
+window.matchMedia("(min-width:1100px)").addEventListener("change", () => setMenu(false));
 
 /* ---------- Menu destaca a seção visível + animação de entrada ---------- */
 if ("IntersectionObserver" in window) {
@@ -59,16 +89,19 @@ if ("IntersectionObserver" in window) {
   );
   $$("main section[id]").forEach((s) => spy.observe(s));
 
-  const revealEls = $$(".section-head, .service-card, .about-copy, .facts li, .quote, .training-copy, .courses, .form, .faq");
+  const revealEls = $$(".section-head, .course-card, .method-copy, .method-photo, .method-audience, .benefit-grid figure, .gallery, .contact-photo, .contact-content, .faq");
+  $$(".course-grid, .benefit-grid").forEach((grid) => {
+    [...grid.children].forEach((el, index) => el.style.setProperty("--reveal-delay", `${index * 70}ms`));
+  });
   revealEls.forEach((el) => el.classList.add("reveal"));
   const reveal = new IntersectionObserver(
     (entries, obs) =>
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
-        entry.target.classList.add("is-visible");
+        if (!reducedMotion.matches) entry.target.classList.add("is-visible");
         obs.unobserve(entry.target);
       }),
-    { threshold: 0.12 }
+    { threshold: 0.08 }
   );
   revealEls.forEach((el) => reveal.observe(el));
 }
@@ -77,13 +110,19 @@ if ("IntersectionObserver" in window) {
 const track = $("#galeria");
 const prev = $(".gallery-btn.prev");
 const next = $(".gallery-btn.next");
+const galleryPosition = $("#gallery-position");
 const updateArrows = () => {
   prev.disabled = track.scrollLeft < 8;
   next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 8;
+  const cards = [...track.children];
+  const left = track.getBoundingClientRect().left;
+  const current = cards.reduce((best, card, index) =>
+    Math.abs(card.getBoundingClientRect().left - left) < Math.abs(cards[best].getBoundingClientRect().left - left) ? index : best, 0);
+  if (galleryPosition) galleryPosition.textContent = `${current + 1} / ${cards.length}`;
 };
-const step = () => Math.max(track.clientWidth * 0.8, 260);
-prev.addEventListener("click", () => track.scrollBy({ left: -step() }));
-next.addEventListener("click", () => track.scrollBy({ left: step() }));
+const step = () => track.children[1].getBoundingClientRect().left - track.children[0].getBoundingClientRect().left;
+prev.addEventListener("click", () => track.scrollBy({ left: -step(), behavior: reducedMotion.matches ? "instant" : "smooth" }));
+next.addEventListener("click", () => track.scrollBy({ left: step(), behavior: reducedMotion.matches ? "instant" : "smooth" }));
 track.addEventListener("scroll", updateArrows, { passive: true });
 window.addEventListener("resize", updateArrows);
 window.addEventListener("load", updateArrows);

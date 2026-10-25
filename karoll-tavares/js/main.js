@@ -28,12 +28,30 @@ onScroll();
 /* ---------- Menu mobile ---------- */
 const toggle = $(".nav-toggle");
 const nav = $("#menu");
+const backdrop = document.createElement("button");
+backdrop.type = "button";
+backdrop.className = "nav-backdrop";
+backdrop.setAttribute("aria-label", "Fechar menu");
+backdrop.tabIndex = -1;
+backdrop.hidden = true;
+document.body.append(backdrop);
 
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+const updateMenuSpace = () => header.style.setProperty("--menu-space", `${Math.max(120, window.innerHeight - header.getBoundingClientRect().bottom)}px`);
+window.addEventListener("resize", updateMenuSpace);
+window.addEventListener("scroll", updateMenuSpace, { passive: true });
 const setMenu = (open) => {
+  if (open) updateMenuSpace();
   toggle.setAttribute("aria-expanded", String(open));
   toggle.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
   nav.classList.toggle("is-open", open);
+  backdrop.hidden = !open;
 };
+
+backdrop.addEventListener("click", () => {
+  setMenu(false);
+  toggle.focus({ preventScroll: true });
+});
 
 toggle.addEventListener("click", () =>
   setMenu(toggle.getAttribute("aria-expanded") !== "true")
@@ -45,6 +63,14 @@ document.addEventListener("keydown", (e) => {
     toggle.focus();
   }
 });
+
+document.addEventListener("click", (event) => {
+  if (!nav.contains(event.target) && !toggle.contains(event.target)) setMenu(false);
+});
+document.addEventListener("focusin", (event) => {
+  if (event.target !== backdrop && !header.contains(event.target)) setMenu(false);
+});
+window.matchMedia("(min-width:1100px)").addEventListener("change", () => setMenu(false));
 
 /* ---------- Destaca o item do menu da seção visível ---------- */
 const sections = $$("main section[id]");
@@ -64,18 +90,24 @@ if ("IntersectionObserver" in window) {
   sections.forEach((s) => spy.observe(s));
 
   /* Animação de entrada suave */
-  const revealEls = $$(".card, .section-head, .about-copy, .space-copy, .students, .quotes blockquote, .form, .faq");
+  const revealEls = $$(".card, .section-head, .about-copy, .space-copy, .space-photo, .students-main, .students > img, .quotes blockquote, .signup-copy, .form, .faq details");
   revealEls.forEach((el) => el.classList.add("reveal"));
+  $$(".card-grid, .service-list, .cards").forEach(grid => {
+    [...grid.children].forEach((el, index) => {
+      const target = el.matches(".reveal") ? el : el.querySelector(".reveal");
+      target?.style.setProperty("--reveal-delay", `${index % 4 * 60}ms`);
+    });
+  });
   const reveal = new IntersectionObserver(
     (entries, obs) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
+          if (!reducedMotion.matches) entry.target.classList.add("is-visible");
           obs.unobserve(entry.target);
         }
       });
     },
-    { threshold: 0.12 }
+    { threshold: 0.08 }
   );
   revealEls.forEach((el) => reveal.observe(el));
 }
