@@ -14,7 +14,7 @@ Site estático em HTML, CSS e JavaScript, sem dependências de produção ou eta
 
 Celular primeiro, sem limite artificial de 480 px para a página. A partir de 900 px, a composição usa colunas de computador; o menu completo aparece a partir de 1100 px. A galeria desliza no celular e permite ampliar cada imagem por toque ou teclado.
 
-As fotos mantêm suas proporções e não recebem desfoque. Registros de atendimento e sala de aula são apresentados como bastidores, sem atribuir nomes às pessoas. As peças com urgência de Black Friday ficaram fora do conteúdo permanente.
+As fotos da galeria mantêm suas proporções e não recebem desfoque. A abertura usa um close editorial em um painel amplo, com enquadramento adaptado à tela e transição para o fundo vinho. Registros de atendimento e sala de aula são apresentados como bastidores, sem atribuir nomes às pessoas. As peças com urgência de Black Friday ficaram fora do conteúdo permanente.
 
 As animações acompanham entrada na tela e toque, com execução pontual. A preferência do dispositivo por movimento reduzido desativa os efeitos.
 

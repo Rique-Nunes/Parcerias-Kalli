@@ -11,7 +11,7 @@ O formulário e a seção de contato também compartilhavam o mesmo identificado
 ## Direção aplicada
 
 - Paleta original preservada: creme `#fbf6f4`, rosa `#c1466b`, rosa escuro `#a23659`, vinho `#472431` e vinho profundo `#30161f`. Demais variáveis de cor originais também foram mantidas.
-- Abertura editorial com retrato nítido e proporção natural, moldura curva e texto independente da fotografia. Sem desfoque e sem colocar o texto sobre o rosto.
+- Abertura de campanha com retrato em painel amplo, close adaptado à tela e transição para o fundo vinho. A antiga moldura estreita foi retirada para ampliar o destaque da imagem. A tipografia foi compactada; no celular, a foto ocupa a largura inteira antes da mensagem e dos botões. Sem desfoque e sem texto sobre os olhos.
 - Sequência de conteúdo: apresentação → sinais de autoridade → técnica, posicionamento e negócio → registros da prática → Ingrid e identidade Lash Empresária LED → conversa → dúvidas.
 - Desktop: composição ampla, colunas proporcionais, fotos em alturas diferentes, texto com largura controlada e formulário com boa separação visual.
 - Celular: margens de 24 px, cards compactos, botões de pelo menos 48 px, galeria horizontal com indicação da próxima foto e visualização ampliada. Menu com linhas igualmente espaçadas e fechamento pelo toque fora, Escape, escolha de link e saída de foco.
@@ -48,3 +48,7 @@ Configuração existente preservada: Instagram `lashempresaria`, sem número de 
 Testado em 320, 360, 375, 390, 430, 600, 768, 899, 900, 1024, 1100, 1440 e 1920 px: largura, imagens, proporções, âncoras, ícones, identificadores únicos e menu por toque. Verificados formulário inválido/válido com abertura externa simulada, tema escolhido nos cards, galeria, foto ampliada por toque/mouse/Escape, dúvidas, tela baixa, texto a 200%, movimento reduzido e conteúdo sem JavaScript.
 
 Arquivos preparados localmente. Publicação e alterações em outros projetos não fazem parte desta entrega.
+
+## Refinamento da abertura
+
+A pedido do usuário, a foto principal passou a ocupar 55% da largura no computador e toda a largura no celular. O painel recebe um degradê de ligação com o vinho já existente na paleta. A frase principal foi reduzida para: Sua técnica. Seu próximo nível. A imagem usada e a identidade da pessoa não foram alteradas. O close é um enquadramento feito pelo layout; o arquivo original permanece intacto. A galeria e as demais seções mantêm a composição anterior. Validação em 12 larguras, de 320 a 1920 px, com verificação dos botões, menu, texto ampliado, movimento reduzido e leitura sem JavaScript.
