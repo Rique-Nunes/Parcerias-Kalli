@@ -3,10 +3,10 @@
    Para mudar o destino do formulário, edite só CONFIG.
    ========================================================= */
 const CONFIG = {
-  // A Ana não divulga WhatsApp público na bio do Instagram (só o link do site de vendas).
-  // Preencha "whatsapp" com DDI + DDD + número (só dígitos) assim que ela passar o contato.
+  // Número vindo dos links da bio do Instagram dela (wa.me/5521978581835, coletado em 26/10/2026).
+  // Confirmar com a Ana antes de publicar. Para voltar ao Instagram, deixe "whatsapp" vazio.
   whatsappLink: "",
-  whatsapp: "", // ex.: "5521999999999"
+  whatsapp: "5521978581835", // DDI + DDD + número, só dígitos
   instagram: "annaatorres",
   // Opcional: URL de um webhook (n8n, Formspree, Google Apps Script...).
   // Se preenchido, o formulário envia os dados para lá (lista de interessados).
@@ -15,6 +15,8 @@ const CONFIG = {
 
 const $ = (sel, ctx = document) => ctx.querySelector(sel);
 const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
+const motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
+const scrollBehavior = () => motionPreference.matches ? "instant" : "smooth";
 const hasWa = () => Boolean(CONFIG.whatsapp || CONFIG.whatsappLink);
 const waLink = (msg) =>
   CONFIG.whatsapp ? `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(msg)}` : CONFIG.whatsappLink;
@@ -59,61 +61,92 @@ const wPrev = $("#works-prev");
 const wNext = $("#works-next");
 const cardStep = () => {
   const li = $("li", track);
-  return li ? li.offsetWidth + 12 : track.clientWidth * 0.8;
+  return track.children[1] ? track.children[1].getBoundingClientRect().left - track.children[0].getBoundingClientRect().left : track.clientWidth * 0.8;
 };
 const updateWorksArrows = () => {
   wPrev.disabled = track.scrollLeft < 8;
   wNext.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 8;
+  const cards = [...track.children];
+  const left = track.getBoundingClientRect().left;
+  const index = cards.reduce((best, card, i) => Math.abs(card.getBoundingClientRect().left - left) < Math.abs(cards[best].getBoundingClientRect().left - left) ? i : best, 0);
+  $("#works-position").textContent = `${index + 1} / ${cards.length}`;
 };
-wPrev.addEventListener("click", () => track.scrollBy({ left: -cardStep(), behavior: "smooth" }));
-wNext.addEventListener("click", () => track.scrollBy({ left: cardStep(), behavior: "smooth" }));
+wPrev.addEventListener("click", () => track.scrollBy({ left: -cardStep(), behavior: scrollBehavior() }));
+wNext.addEventListener("click", () => track.scrollBy({ left: cardStep(), behavior: scrollBehavior() }));
 track.addEventListener("scroll", updateWorksArrows, { passive: true });
 window.addEventListener("resize", updateWorksArrows);
 window.addEventListener("load", updateWorksArrows);
 updateWorksArrows();
 track.addEventListener("keydown", (e) => {
-  if (e.key === "ArrowRight") track.scrollBy({ left: cardStep(), behavior: "smooth" });
-  if (e.key === "ArrowLeft") track.scrollBy({ left: -cardStep(), behavior: "smooth" });
+  if (e.key === "ArrowRight" || e.key === "ArrowLeft") e.preventDefault();
+  if (e.key === "ArrowRight") track.scrollBy({ left: cardStep(), behavior: scrollBehavior() });
+  if (e.key === "ArrowLeft") track.scrollBy({ left: -cardStep(), behavior: scrollBehavior() });
 });
 
 let drag = null;
+let suppressPhotoClick = false;
 track.addEventListener("pointerdown", (e) => {
   if (e.pointerType !== "mouse" || e.button !== 0) return;
-  drag = { x: e.clientX, left: track.scrollLeft };
-  track.classList.add("is-dragging");
-  track.setPointerCapture(e.pointerId);
+  drag = { x: e.clientX, left: track.scrollLeft, id: e.pointerId, moved: false };
 });
 track.addEventListener("pointermove", (e) => {
-  if (drag) track.scrollLeft = drag.left - (e.clientX - drag.x);
+  if (!drag) return;
+  if (Math.abs(e.clientX - drag.x) > 8 && track.scrollWidth > track.clientWidth + 1) {
+    drag.moved = true;
+    track.classList.add("is-dragging");
+    track.setPointerCapture(e.pointerId);
+    track.scrollLeft = drag.left - (e.clientX - drag.x);
+  }
 });
 const endDrag = () => {
   if (!drag) return;
-  const moved = track.scrollLeft - drag.left;
+  const moved = drag.moved;
+  if (track.hasPointerCapture(drag.id)) track.releasePointerCapture(drag.id);
   drag = null;
   track.classList.remove("is-dragging");
-  const s = cardStep();
-  const target = Math.round((track.scrollLeft + (moved > 40 ? s * 0.4 : moved < -40 ? -s * 0.4 : 0)) / s) * s;
-  track.scrollTo({ left: target, behavior: "smooth" });
+  if (moved) {
+    suppressPhotoClick = true;
+    setTimeout(() => { suppressPhotoClick = false; }, 300);
+    const s = cardStep();
+    track.scrollTo({ left: Math.round(track.scrollLeft / s) * s, behavior: scrollBehavior() });
+  }
 };
 track.addEventListener("pointerup", endDrag);
 track.addEventListener("pointercancel", endDrag);
+track.addEventListener("lostpointercapture", endDrag);
+document.addEventListener("pointerup", endDrag);
+track.addEventListener("click", e => {
+  if (suppressPhotoClick) { e.preventDefault(); e.stopImmediatePropagation(); suppressPhotoClick = false; }
+}, true);
 
-/* ---------- Menu ---------- */
+/* ---------- Menu com área de toque e fechamento ao tocar fora ---------- */
+const header = $(".site-header");
 const toggle = $(".nav-toggle");
 const nav = $("#menu");
+const backdrop = document.createElement("button");
+backdrop.type = "button";
+backdrop.className = "nav-backdrop";
+backdrop.setAttribute("aria-label", "Fechar menu");
+backdrop.tabIndex = -1;
+backdrop.hidden = true;
+document.body.append(backdrop);
+const updateMenuSpace = () => header.style.setProperty("--menu-space", `${Math.max(120, innerHeight - header.getBoundingClientRect().bottom)}px`);
 const setMenu = (open) => {
+  if (open) updateMenuSpace();
   toggle.setAttribute("aria-expanded", String(open));
   toggle.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
   nav.classList.toggle("is-open", open);
+  backdrop.hidden = !open;
 };
 toggle.addEventListener("click", () => setMenu(toggle.getAttribute("aria-expanded") !== "true"));
-$$("#menu a").forEach((a) => a.addEventListener("click", () => setMenu(false)));
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape" && nav.classList.contains("is-open")) {
-    setMenu(false);
-    toggle.focus();
-  }
-});
+$$("#menu a").forEach(a => a.addEventListener("click", () => setMenu(false)));
+backdrop.addEventListener("click", () => { setMenu(false); toggle.focus({ preventScroll: true }); });
+document.addEventListener("click", e => { if (!nav.contains(e.target) && !toggle.contains(e.target)) setMenu(false); });
+document.addEventListener("focusin", e => { if (e.target !== backdrop && !header.contains(e.target)) setMenu(false); });
+document.addEventListener("keydown", e => { if (e.key === "Escape" && nav.classList.contains("is-open")) { setMenu(false); toggle.focus(); } });
+window.addEventListener("resize", updateMenuSpace);
+window.addEventListener("scroll", updateMenuSpace, { passive: true });
+matchMedia("(min-width:1100px)").addEventListener("change", () => setMenu(false));
 
 /* ---------- Menu destaca a seção visível, barra fixa e animações ---------- */
 const dock = $("#dock");
@@ -137,19 +170,19 @@ if ("IntersectionObserver" in window) {
   });
   ["inicio", "interesse"].forEach((id) => dockWatch.observe(document.getElementById(id)));
 
-  const revealEls = $$(".section > h2, .section-lead, .service, .timeline li, .faq, .metodo-steps li, .facts li, .pilares li, .works-track li");
+  const revealEls = $$(".section-head, .formacao-banner, .service, .metodo-copy, .metodo-photo, .timeline li, .faq, .facts li, .pilares li, .students-grid li, .agenda-info, .metodo-steps li");
   revealEls.forEach((el, i) => {
     el.classList.add("reveal");
-    el.style.transitionDelay = `${(i % 6) * 70}ms`;
+    el.style.setProperty("--delay", `${(i % 3) * 65}ms`);
   });
   const reveal = new IntersectionObserver(
     (entries, obs) =>
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
-        entry.target.classList.add("is-visible");
+        if (!motionPreference.matches) entry.target.classList.add("is-visible");
         obs.unobserve(entry.target);
       }),
-    { threshold: 0.12 }
+    { threshold: 0.08 }
   );
   revealEls.forEach((el) => reveal.observe(el));
 }
@@ -307,17 +340,77 @@ form.addEventListener("submit", async (e) => {
 /* ---------- Ano automático no rodapé ---------- */
 $("#ano").textContent = new Date().getFullYear();
 
-/* ---------- Parallax leve na foto principal ---------- */
-(function () {
-  const img = document.querySelector(".hero-photo-frame img");
-  if (!img || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-  let busy = false;
-  window.addEventListener("scroll", () => {
-    if (busy) return;
-    busy = true;
-    requestAnimationFrame(() => {
-      img.style.transform = `translateY(${Math.min(window.scrollY, 500) * 0.08}px) scale(1.05)`;
-      busy = false;
-    });
+/* ---------- Fotos ampliadas: diálogo nativo com teclado e fechamento fora ---------- */
+const photoDialog = $("#photo-dialog");
+let photoTrigger = null;
+$$(".photo-open").forEach(button => button.addEventListener("click", () => {
+  photoTrigger = button;
+  $("#photo-expanded").src = button.dataset.photo;
+  $("#photo-expanded").alt = button.querySelector("img").alt;
+  $("#photo-caption").textContent = button.dataset.caption;
+  photoDialog.showModal();
+}));
+$(".photo-close").addEventListener("click", () => photoDialog.close());
+photoDialog.addEventListener("click", event => {
+  if (event.target === photoDialog) {
+    const bounds = photoDialog.getBoundingClientRect();
+    if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) photoDialog.close();
+  }
+});
+photoDialog.addEventListener("close", () => photoTrigger?.focus({ preventScroll: true }));
+
+/* ---------- Entradas suaves, sem parallax que corte o retrato ---------- */
+(() => {
+  const running = new Set();
+  const play = (element, frames, options) => {
+    if (!element || motionPreference.matches || !element.animate) return;
+    const animation = element.animate(frames, options);
+    running.add(animation);
+    animation.finished.catch(() => {}).finally(() => running.delete(animation));
+    return animation;
+  };
+  motionPreference.addEventListener("change", () => { if (motionPreference.matches) [...running].forEach(a => a.cancel()); });
+  document.querySelectorAll(".hero-copy > *").forEach((element, i) => play(element,
+    [{ opacity: 0, transform: "translateY(18px)" }, { opacity: 1, transform: "translateY(0)" }],
+    { duration: 750, delay: i * 70, easing: "cubic-bezier(.16,1,.3,1)", fill: "backwards" }));
+  play($(".hero-photo-frame"), [{ opacity: .3, translate: "0 15px" }, { opacity: 1, translate: "0 0" }], { duration: 1000, easing: "ease-out" });
+  // Feedback on completed taps, so scrolling a card never triggers a ripple.
+  const tapAnimations = new WeakMap();
+  document.addEventListener("click", event => {
+    if (motionPreference.matches) return;
+    const target = event.target.closest(".btn,.service,.photo-open,.works-btn");
+    if (!target || target.disabled) return;
+    tapAnimations.get(target)?.cancel();
+    const animation = play(target, [{ scale: "1" }, { scale: ".975", offset: .35 }, { scale: "1" }], { duration: 320, easing: "ease-out" });
+    if (animation) tapAnimations.set(target, animation);
+    if (!target.matches(".btn")) return;
+    target.querySelector(".motion-ripple")?.remove();
+    const ripple = document.createElement("span");
+    const bounds = target.getBoundingClientRect();
+    ripple.className = "motion-ripple";
+    ripple.setAttribute("aria-hidden", "true");
+    ripple.style.left = `${event.detail ? event.clientX - bounds.left : bounds.width / 2}px`;
+    ripple.style.top = `${event.detail ? event.clientY - bounds.top : bounds.height / 2}px`;
+    target.append(ripple);
+    const effect = play(ripple, [{ opacity: .18, scale: "0" }, { opacity: 0, scale: "3" }], { duration: 650, easing: "ease-out" });
+    if (effect) effect.finished.catch(() => {}).finally(() => ripple.remove());
+    else ripple.remove();
   }, { passive: true });
+
+  if ("IntersectionObserver" in window) {
+    const photos = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-in-view");
+        play(entry.target.querySelector("img"), [{ opacity: .45 }, { opacity: 1 }], { duration: 850, easing: "ease-out" });
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: .25 });
+    document.querySelectorAll(".works-track li").forEach(element => photos.observe(element));
+  }
+
+  document.querySelectorAll(".faq").forEach(details => details.addEventListener("toggle", () => {
+    if (details.open) play(details.querySelector("p"), [{ opacity: 0, translate: "0 -8px" }, { opacity: 1, translate: "0 0" }], { duration: 350, easing: "ease-out" });
+  }));
+
 })();

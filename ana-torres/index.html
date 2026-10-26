@@ -8,11 +8,12 @@
   <meta name="description" content="Ana Torres, master em extensão de cílios no Rio de Janeiro. Mentora, palestrante e educadora, com +5.000 alunas pelo mundo. Conheça a Formação Master em Extensão de Cílios.">
   <meta property="og:title" content="Ana Torres | Master em Cílios RJ">
   <meta property="og:description" content="Mapeamento, precisão e retenção. Formação Master em Extensão de Cílios, com Ana Torres.">
+  <meta property="og:image" content="assets/img/hero-ana.webp">
   <meta property="og:type" content="website">
   <meta name="theme-color" content="#472431">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%23472431'/%3E%3Ctext x='50%25' y='64%25' text-anchor='middle' font-family='Georgia,serif' font-size='34' fill='%23e8a9bf'%3EA%3C/text%3E%3C/svg%3E">
-  <link rel="stylesheet" href="css/style.css?v=20261025-refhero1">
-  <script src="js/main.js?v=20261025" defer></script>
+  <link rel="stylesheet" href="css/style.css?v=20261026-motion-2">
+  <script src="js/main.js?v=20261026-motion-2" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
@@ -24,6 +25,11 @@
     <symbol id="i-check" viewBox="0 0 24 24"><path d="M12 3 5 6v5.5c0 4.3 2.9 7.6 7 9.5 4.1-1.9 7-5.2 7-9.5V6z" fill="currentColor" fill-opacity=".12" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="m8.7 12.2 2.3 2.3 4.4-4.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
     <symbol id="i-target" viewBox="0 0 24 24"><path d="M2.5 12S6 6 12 6s9.5 6 9.5 6-3.5 6-9.5 6S2.5 12 2.5 12z" fill="currentColor" fill-opacity=".12" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><circle cx="12" cy="12" r="3" fill="currentColor"/><path d="M12 2.5v1.8M6 4.2l.9 1.5M18 4.2l-.9 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
     <symbol id="i-star" viewBox="0 0 24 24"><path d="M10.5 3.5 12.3 8.6l5.2 1.9-5.2 1.9-1.8 5.1-1.9-5.1L3.5 10.5l5.1-1.9z" fill="currentColor" fill-opacity=".14" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M18.5 14.5l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8z" fill="currentColor"/></symbol>
+
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-cap" viewBox="0 0 24 24"><path d="m2 9 10-5 10 5-10 5Zm4 2v6c4 3 8 3 12 0v-6m4-2v7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-expand" viewBox="0 0 24 24"><path d="M9 4H4v5m11-5h5v5M4 15v5h5m11-5v5h-5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   </svg>
 
   <div class="page">
@@ -35,7 +41,7 @@
           <ul>
             <li><a href="#formacao">A formação</a></li>
             <li><a href="#metodo">O método</a></li>
-            <li><a href="#trajetoria">Trajetória</a></li>
+            <li><a href="#alunas">Alunas</a></li>
             <li><a href="#trabalhos" data-optional-link="trabalhos">Técnica</a></li>
             <li><a href="#duvidas">Dúvidas</a></li>
           </ul>
@@ -48,26 +54,24 @@
 
       <!-- ============ INÍCIO ============ -->
       <section class="hero" id="inicio" aria-labelledby="hero-titulo">
-        <div class="hero-header-row">
-          <div class="hero-heading-block">
-            <h1 id="hero-titulo">Formação <span>Master em</span> <span>Extensão de</span> <em>Cílios</em></h1>
-          </div>
-          <figure class="hero-photo-frame" data-optional-block>
-            <img class="hero-photo" data-optional src="assets/img/hero-ana.webp" alt="Ana Torres no estúdio" fetchpriority="high">
-            <figcaption>Ana Torres</figcaption>
-          </figure>
-        </div>
-        <div class="hero-foot">
+        <div class="hero-copy">
+          <p class="eyebrow hero-kicker">Instituto Ateliê · Rio de Janeiro</p>
+          <h1 id="hero-titulo">Formação <span>Master em</span> <span>Extensão de</span> <em>Cílios.</em></h1>
+          <p class="hero-lead">Mapeamento, precisão e retenção. Aprenda com Ana Torres a levar conhecimento para a prática profissional.</p>
           <div class="hero-actions">
-            <a class="btn btn-pink btn-block" href="#interesse">Conhecer a formação <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-            <a class="btn btn-ghost-dark btn-block js-whatsapp" href="#interesse" data-msg="Oi, Ana! Vim pelo seu site e quero saber mais sobre a Formação Master em Extensão de Cílios.">Falar no Instagram</a>
+            <a class="btn btn-pink" href="#interesse">Conhecer a formação <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a class="btn btn-ghost-dark js-whatsapp" href="#interesse" data-msg="Oi, Ana! Vim pelo seu site e quero saber mais sobre a Formação Master em Extensão de Cílios."><svg aria-hidden="true"><use href="#i-whats"/></svg> Falar com a Ana</a>
           </div>
-          <ul class="hero-signals" aria-label="Diferenciais da formação"><li>Prática guiada</li><li>Certificado</li><li>Suporte real</li></ul>
+          <ul class="hero-signals" aria-label="Diferenciais da formação"><li><svg aria-hidden="true"><use href="#i-check"/></svg> Prática guiada</li><li><svg aria-hidden="true"><use href="#i-cap"/></svg> Certificado</li><li><svg aria-hidden="true"><use href="#i-star"/></svg> Suporte real</li></ul>
         </div>
+        <figure class="hero-photo-frame" data-optional-block>
+          <img class="hero-photo" data-optional src="assets/img/hero-ana.webp" width="677" height="848" alt="Ana Torres, de blazer branco, com a mão no queixo" fetchpriority="high">
+          <figcaption><span>Ana Torres</span><small>Mentora · Palestrante · Educadora</small></figcaption>
+        </figure>
       </section>
 
       <!-- ============ FATOS ============ -->
-      <section class="facts" aria-label="Resumo">
+      <section class="facts" aria-label="Pilares da formação">
         <ul>
           <li><svg aria-hidden="true"><use href="#i-target"/></svg><strong>Mapeamento</strong><span>Olhar técnico</span></li>
           <li><svg aria-hidden="true"><use href="#i-check"/></svg><strong>Precisão e retenção</strong><span>Base da técnica</span></li>
@@ -75,46 +79,29 @@
         </ul>
       </section>
 
-      <section class="strip" aria-label="Galeria de imagens"><div class="strip-track"><img src="assets/img/tecnica-lash-1.webp" alt="Aplicação de extensão de cílios fio a fio" loading="lazy"><img src="assets/img/aluna-certificado-1.webp" alt="Aluna formada com o certificado" loading="lazy"><img src="assets/img/tecnica-lash-2.webp" alt="Extensão de cílios volume finalizada" loading="lazy"><img src="assets/img/tecnica-mapeamento.webp" alt="Mapeamento técnico dos cílios" loading="lazy"><img src="assets/img/aluna-certificado-2.webp" alt="Aluna formada ao lado de Ana Torres" loading="lazy"><img src="assets/img/tecnica-lash-3.webp" alt="Acabamento premium de cílios" loading="lazy"><img src="assets/img/aluna-certificado-3.webp" alt="Aluna com o certificado da Formação" loading="lazy"><img src="assets/img/ana-metodo.webp" alt="Ana Torres" loading="lazy"><img src="assets/img/tecnica-lash-1.webp" alt="" aria-hidden="true" loading="lazy"><img src="assets/img/aluna-certificado-1.webp" alt="" aria-hidden="true" loading="lazy"><img src="assets/img/tecnica-lash-2.webp" alt="" aria-hidden="true" loading="lazy"><img src="assets/img/tecnica-mapeamento.webp" alt="" aria-hidden="true" loading="lazy"><img src="assets/img/aluna-certificado-2.webp" alt="" aria-hidden="true" loading="lazy"><img src="assets/img/tecnica-lash-3.webp" alt="" aria-hidden="true" loading="lazy"><img src="assets/img/aluna-certificado-3.webp" alt="" aria-hidden="true" loading="lazy"><img src="assets/img/ana-metodo.webp" alt="" aria-hidden="true" loading="lazy"></div></section>
-
-      <!-- ============ FORMAÇÃO ============ -->
+<!-- ============ FORMAÇÃO ============ -->
       <section class="section services" id="formacao" aria-labelledby="formacao-titulo">
         <div class="formacao-banner">
-          <p class="eyebrow num">Escolha o seu próximo nível</p>
-          <h2 id="formacao-titulo">Formação que vira<br><em>resultado.</em></h2>
-          <p class="section-lead">Técnica de mapeamento, execução segura e rotina para valorizar a sua agenda, do zero à prática profissional.</p>
-          <a class="btn btn-pink" href="#interesse">Conhecer o curso <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <p class="eyebrow">Seu próximo nível</p>
+          <h2 id="formacao-titulo">Da base técnica<br>ao seu <em>próximo passo.</em></h2>
+          <p class="section-lead">Uma formação que conecta leitura de olhar, aplicação e rotina profissional.</p>
+          <a class="text-link" href="#interesse">Quero conhecer a formação <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
         </div>
-        <p class="eyebrow list-eyebrow">Conteúdo que transforma</p>
         <ul class="service-list">
-          <li><a class="service service-feature" href="#interesse" data-interesse="Mapeamento e olhar técnico">
-            <figure><img data-optional src="assets/img/tecnica-mapeamento.webp" alt="Mapeamento técnico da curvatura dos cílios, com numeração dos tamanhos de extensão sobre o olho"></figure>
-            <span class="service-body"><strong>Olhar técnico</strong><span>Base sólida para evoluir com confiança.</span></span>
-            <span class="service-go" aria-hidden="true">↗</span></a></li>
-          <li><a class="service" href="#interesse" data-interesse="Execução segura">
-            <figure><img data-optional src="assets/img/tecnica-lash-1.webp" alt="Close-up da aplicação de extensão de cílios fio a fio"></figure>
-            <span class="service-body"><strong>Execução segura</strong><span>Conteúdo técnico e aplicação na maca</span></span></a></li>
-          <li><a class="service" href="#interesse" data-interesse="Agenda valorizada">
-            <figure><img data-optional src="assets/img/tecnica-lash-2.webp" alt="Close-up de extensão de cílios volume finalizada"></figure>
-            <span class="service-body"><strong>Agenda valorizada</strong><span>Posicionamento e retenção de clientes</span></span></a></li>
+          <li><a class="service" href="#interesse" data-interesse="Mapeamento e olhar técnico"><span class="service-icon"><svg aria-hidden="true"><use href="#i-target"/></svg></span><span class="service-body"><small>01 · Mapeamento</small><strong>Um olhar técnico.</strong><span>Leitura de olhar para construir uma base sólida e evoluir com confiança.</span></span><span class="service-go"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a></li>
+          <li><a class="service" href="#interesse" data-interesse="Execução segura"><span class="service-icon"><svg aria-hidden="true"><use href="#i-check"/></svg></span><span class="service-body"><small>02 · Aplicação</small><strong>Precisão na prática.</strong><span>Execução segura, atenção aos detalhes e prática guiada na maca.</span></span><span class="service-go"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a></li>
+          <li><a class="service" href="#interesse" data-interesse="Agenda valorizada"><span class="service-icon"><svg aria-hidden="true"><use href="#i-star"/></svg></span><span class="service-body"><small>03 · Rotina profissional</small><strong>Valor em cada entrega.</strong><span>Posicionamento, retenção de clientes e cuidado com a experiência.</span></span><span class="service-go"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a></li>
         </ul>
       </section>
 
+<section class="section works" id="trabalhos" aria-labelledby="trabalhos-titulo">
+        <div class="section-head"><div><p class="eyebrow">Técnica em detalhe</p><h2 id="trabalhos-titulo">O cuidado aparece<br>em cada <em>olhar.</em></h2></div><p class="section-lead">Registros de extensões de cílios em clientes do Instituto Ateliê. Toque nas fotos para ver os detalhes.</p></div>
+        <ul class="works-track" id="galeria" tabindex="0" aria-label="Resultados técnicos em clientes"><li><figure><button class="photo-open" type="button" data-photo="assets/img/resultado-volume.webp" data-caption="Volume e acabamento · Resultado em cliente" aria-label="Ampliar foto: Volume e acabamento"><img src="assets/img/resultado-volume.webp" alt="Close de extensão de cílios em cliente, com a marca Ana Torres Instituto Ateliê" loading="lazy" width="1280" height="1280"><span class="expand-icon"><svg aria-hidden="true"><use href="#i-expand"/></svg></span></button><figcaption><strong>Volume e acabamento</strong><span>Precisão em cada aplicação</span></figcaption></figure></li><li><figure><button class="photo-open" type="button" data-photo="assets/img/resultado-leque.webp" data-caption="Direção e delicadeza · Resultado em cliente" aria-label="Ampliar foto: Direção e delicadeza"><img src="assets/img/resultado-leque.webp" alt="Detalhe de leques de extensão de cílios em cliente, com a marca Instituto Ateliê" loading="lazy" width="1280" height="1280"><span class="expand-icon"><svg aria-hidden="true"><use href="#i-expand"/></svg></span></button><figcaption><strong>Direção e delicadeza</strong><span>Atenção ao desenho do olhar</span></figcaption></figure></li><li><figure><button class="photo-open" type="button" data-photo="assets/img/resultado-definicao.webp" data-caption="Definição do olhar · Resultado em cliente" aria-label="Ampliar foto: Definição do olhar"><img src="assets/img/resultado-definicao.webp" alt="Close de extensão de cílios em cliente com a marca Instituto Ateliê na lateral" loading="lazy" width="1200" height="1600"><span class="expand-icon"><svg aria-hidden="true"><use href="#i-expand"/></svg></span></button><figcaption><strong>Definição do olhar</strong><span>Detalhes que fazem a diferença</span></figcaption></figure></li></ul><div class="works-controls"><button class="works-btn" type="button" id="works-prev" aria-label="Foto anterior" aria-controls="galeria"><svg aria-hidden="true"><use href="#i-chevron"/></svg></button><p class="swipe-hint"><span>Explore os resultados</span><span id="works-position" aria-live="polite" aria-atomic="true">1 / 3</span></p><button class="works-btn" type="button" id="works-next" aria-label="Próxima foto" aria-controls="galeria"><svg aria-hidden="true"><use href="#i-chevron"/></svg></button></div></section>
+
       <!-- ============ MÉTODO ============ -->
       <section class="section metodo" id="metodo" aria-labelledby="metodo-titulo">
-        <p class="eyebrow">O método</p>
-        <h2 id="metodo-titulo">Do conhecimento<br><em>à prática profissional.</em></h2>
-        <p>Técnica, leitura de olhar e rotina profissional para entregar resultados delicados e consistentes.</p>
-        <figure class="metodo-photo" data-optional-block>
-          <img data-optional src="assets/img/ana-metodo.webp" alt="Ana Torres, close-up de rosto, com extensão de cílios aplicada">
-          <figcaption>Ana Torres</figcaption>
-        </figure>
-        <ul class="metodo-steps">
-          <li><span class="step-num">1</span>Prática guiada</li>
-          <li><span class="step-num">2</span>Suporte</li>
-          <li><span class="step-num">3</span>Certificado</li>
-          <li><span class="step-num">4</span>Aplicação real</li>
-        </ul>
+        <div class="metodo-copy"><p class="eyebrow">Quem acompanha sua evolução</p><h2 id="metodo-titulo">Conhecimento<br>com <em>direção.</em></h2><p>Ana Torres é mentora, palestrante e educadora. À frente do Instituto Ateliê, conecta técnica, leitura de olhar e rotina profissional.</p><ul class="metodo-steps"><li><svg aria-hidden="true"><use href="#i-target"/></svg><div><strong>Prática guiada</strong><span>Para transformar conteúdo em execução.</span></div></li><li><svg aria-hidden="true"><use href="#i-star"/></svg><div><strong>Suporte</strong><span>Orientação para o seu momento profissional.</span></div></li><li><svg aria-hidden="true"><use href="#i-cap"/></svg><div><strong>Certificação</strong><span>Um novo capítulo na sua formação.</span></div></li></ul><a class="btn btn-ghost-dark" href="#interesse">Conversar sobre a formação <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+        <figure class="metodo-photo"><img src="assets/img/ana-retrato-sentada.webp" width="901" height="1600" alt="Ana Torres sentada, com roupa preta e blazer branco sobre os ombros" loading="lazy"><figcaption><span>Ana Torres</span><small>Instituto Ateliê</small></figcaption></figure>
       </section>
 
       <!-- ============ PILARES ============ -->
@@ -139,83 +126,15 @@
         </ol>
       </section>
 
-      <!-- ============ TRABALHOS ============ -->
-      <section class="section works" id="trabalhos" aria-labelledby="trabalhos-titulo" hidden>
-        <p class="eyebrow num">Mais que conteúdo</p>
-        <h2 id="trabalhos-titulo">Uma experiência para<br><em>mudar o seu próximo passo.</em></h2>
-        <ul class="works-track" id="galeria" tabindex="0" aria-label="Fotos de alunas formadas e técnica de Ana Torres">
-          <li>
-            <figure>
-              <div class="img-wrap">
-                <span class="card-tag">Aluna formada</span>
-                <img data-optional src="assets/img/aluna-certificado-1.webp" alt="Ana Torres ao lado de uma aluna recém-formada, segurando o certificado">
-              </div>
-              <figcaption>
-                <div class="caption-meta">
-                  <strong>Evolua na prática</strong>
-                  <span class="caption-sub">Certificação e suporte real</span>
-                </div>
-              </figcaption>
-            </figure>
-          </li>
-          <li>
-            <figure>
-              <div class="img-wrap">
-                <span class="card-tag">Conquistas</span>
-                <img data-optional src="assets/img/aluna-certificado-2.webp" alt="Ana Torres ao lado de outra aluna formada, segurando o certificado, com decoração de flores ao fundo">
-              </div>
-              <figcaption>
-                <div class="caption-meta">
-                  <strong>Construa autoridade</strong>
-                  <span class="caption-sub">Turma Master em Cílios</span>
-                </div>
-              </figcaption>
-            </figure>
-          </li>
-          <li>
-            <figure>
-              <div class="img-wrap">
-                <span class="card-tag">Experiência</span>
-                <img data-optional src="assets/img/aluna-certificado-3.webp" alt="Aluna sorridente segurando o certificado da Formação, no estúdio de Ana Torres">
-              </div>
-              <figcaption>
-                <div class="caption-meta">
-                  <strong>Valorize sua entrega</strong>
-                  <span class="caption-sub">Posicionamento e agenda cheia</span>
-                </div>
-              </figcaption>
-            </figure>
-          </li>
-          <li>
-            <figure>
-              <div class="img-wrap">
-                <span class="card-tag">Padrão Premium</span>
-                <img data-optional src="assets/img/tecnica-lash-3.webp" alt="Close-up de extensão de cílios recém-aplicada">
-              </div>
-              <figcaption>
-                <div class="caption-meta">
-                  <strong>Acabamento impecável</strong>
-                  <span class="caption-sub">Mapeamento e precisão máxima</span>
-                </div>
-              </figcaption>
-            </figure>
-          </li>
-        </ul>
-        <div class="works-controls">
-          <button class="works-btn" type="button" id="works-prev" aria-label="Foto anterior" aria-controls="galeria">‹</button>
-          <p class="swipe-hint">Deslize ou use as setas</p>
-          <button class="works-btn" type="button" id="works-next" aria-label="Próxima foto" aria-controls="galeria">›</button>
-        </div>
-      </section>
+<!-- ============ INTERESSE ============ -->
+      <section class="section students-section" id="alunas" aria-labelledby="alunas-titulo"><div class="section-head"><div><p class="eyebrow">Jornadas reais</p><h2 id="alunas-titulo">O próximo capítulo<br>é das <em>alunas.</em></h2></div><p class="section-lead">Registros de certificação no Instituto Ateliê. Cada foto representa uma etapa de formação.</p></div><ul class="students-grid"><li><figure><img src="assets/img/aluna-certificado-1.webp" alt="Registro de certificação com duas participantes segurando um certificado" loading="lazy" width="640" height="640"><figcaption><svg aria-hidden="true"><use href="#i-cap"/></svg><span>Aluna formada<small>Registro de certificação</small></span></figcaption></figure></li><li><figure><img src="assets/img/aluna-certificado-2.webp" alt="Registro de certificação com duas participantes segurando um certificado" loading="lazy" width="480" height="640"><figcaption><svg aria-hidden="true"><use href="#i-cap"/></svg><span>Aluna formada<small>Registro de certificação</small></span></figcaption></figure></li><li><figure><img src="assets/img/aluna-certificado-3.webp" alt="Aluna formada com o certificado no Instituto Ateliê" loading="lazy" width="480" height="640"><figcaption><svg aria-hidden="true"><use href="#i-cap"/></svg><span>Aluna formada<small>Registro de certificação</small></span></figcaption></figure></li><li><figure><img src="assets/img/aluna-formada.webp" alt="Aluna formada com o certificado no Instituto Ateliê" loading="lazy" width="640" height="640"><figcaption><svg aria-hidden="true"><use href="#i-cap"/></svg><span>Aluna formada<small>Registro de certificação</small></span></figcaption></figure></li></ul></section>
 
-      <!-- ============ INTERESSE ============ -->
-      <section class="section agenda" id="interesse" aria-labelledby="interesse-titulo">
+<section class="section agenda" id="interesse" aria-labelledby="interesse-titulo">
         <div class="agenda-info">
         <p class="eyebrow">Lista de interesse</p>
         <h2 id="interesse-titulo">Dê o seu<br><em>próximo passo.</em></h2>
         <p class="section-lead">Receba informações sobre a Formação Master em Extensão de Cílios e seja avisado(a) quando uma nova turma abrir.</p>
-        <figure class="agenda-photo" data-optional-block><img data-optional src="assets/img/hero-ana.webp" alt="Ana Torres sorrindo"></figure>
-        </div>
+</div>
         <form class="form" id="form-contato" novalidate>
           <div class="field"><label for="nome">Nome completo <span aria-hidden="true">*</span></label><input id="nome" name="nome" type="text" autocomplete="name" required aria-describedby="nome-erro"><p class="error" id="nome-erro" aria-live="polite"></p></div>
           <div class="field"><label for="whatsapp">Seu WhatsApp <span aria-hidden="true">*</span></label><input id="whatsapp" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" placeholder="(21) 98765-4321" required aria-describedby="whatsapp-erro"><p class="error" id="whatsapp-erro" aria-live="polite"></p></div>
@@ -271,5 +190,6 @@
     <a class="btn btn-pink" href="#interesse">Quero ser aluna <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
     <a class="dock-ig" href="https://www.instagram.com/annaatorres/" target="_blank" rel="noopener" aria-label="Abrir o Instagram da Ana"><svg aria-hidden="true"><use href="#i-insta"/></svg></a>
   </div>
+  <dialog class="photo-dialog" id="photo-dialog" aria-label="Foto ampliada do resultado"><button class="photo-close" type="button" aria-label="Fechar foto ampliada"><svg aria-hidden="true"><use href="#i-close"/></svg></button><figure><img id="photo-expanded" alt=""><figcaption id="photo-caption"></figcaption></figure></dialog>
 </body>
 </html>
