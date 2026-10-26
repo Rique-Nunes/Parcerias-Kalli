@@ -30,7 +30,9 @@ $$(".js-whatsapp").forEach((a) => {
   } else {
     a.hidden = false;
     a.href = dmLink;
-    a.textContent = a.textContent.replace("WhatsApp", "Instagram");
+    const textNodes = document.createTreeWalker(a, NodeFilter.SHOW_TEXT);
+    while (textNodes.nextNode()) textNodes.currentNode.textContent = textNodes.currentNode.textContent.replace("WhatsApp", "Instagram");
+    a.querySelector('use[href="#i-whats"]')?.setAttribute("href", "#i-insta");
   }
   a.target = "_blank";
   a.rel = "noopener";
@@ -193,7 +195,7 @@ $$("[data-interesse]").forEach((link) =>
   link.addEventListener("click", () => {
     interesse.value = link.dataset.interesse;
     clearError(interesse);
-    setTimeout(() => $("#nome").focus({ preventScroll: true }), 700);
+    status.textContent = "Tema selecionado. Complete seus dados para iniciar a conversa.";
   })
 );
 
@@ -205,14 +207,9 @@ const submitBtn = $("#btn-enviar");
 const label = $("span", submitBtn);
 
 function setSubmitLabel() {
-  if (CONFIG.webhook) {
-    label.textContent = "Receber informações";
-    $("#nota-privacidade").textContent = "Seus dados vão só para a Ana e não são compartilhados.";
-  } else if (hasWa()) {
-    label.textContent = "Enviar pelo WhatsApp";
-  } else {
-    label.textContent = "Enviar pelo Instagram";
-  }
+  label.textContent = CONFIG.webhook ? "Receber informações" : hasWa() ? "Conversar pelo WhatsApp" : "Conversar pelo Instagram";
+  $("use", submitBtn).setAttribute("href", CONFIG.webhook ? "#i-arrow" : hasWa() ? "#i-whats" : "#i-insta");
+  $("#nota-privacidade").textContent = CONFIG.webhook ? "Ao enviar, seus dados serão encaminhados à equipe da Ana para retorno sobre a formação." : `O site prepara sua mensagem e abre o ${hasWa() ? "WhatsApp" : "Instagram"}. Você revisa e envia no aplicativo. Os dados não ficam salvos aqui.`;
 }
 setSubmitLabel();
 
@@ -312,29 +309,10 @@ form.addEventListener("submit", async (e) => {
   }
 
   const msg = montarMensagem(dados);
-
-  /* Caminho 2: WhatsApp (com número, a mensagem já vai preenchida; com o link da bio, ela é copiada) */
-  if (hasWa()) {
-    window.open(waLink(msg), "_blank", "noopener");
-    if (!CONFIG.whatsapp) {
-      try {
-        await navigator.clipboard.writeText(msg.replace(/\*/g, ""));
-        status.textContent = "Mensagem copiada! Cole na conversa com a Ana no WhatsApp.";
-      } catch {
-        status.textContent = "Na conversa do WhatsApp, escreva seu nome e o seu momento profissional.";
-      }
-    }
-    return;
-  }
-
-  /* Caminho 3 (padrão enquanto não há WhatsApp): copia a mensagem e abre o Instagram */
-  window.open(dmLink, "_blank", "noopener");
-  try {
-    await navigator.clipboard.writeText(msg.replace(/\*/g, ""));
-    status.textContent = "Mensagem copiada! Cole na conversa com a Ana no Instagram.";
-  } catch {
-    status.textContent = "Na conversa do Instagram, escreva seu nome, WhatsApp e o seu momento profissional.";
-  }
+  $("#message-preview").hidden = false;
+  $("#mensagem-pronta").value = msg.replace(/\*/g, "");
+  window.open(hasWa() ? waLink(msg) : dmLink, "_blank", "noopener");
+  status.textContent = hasWa() && CONFIG.whatsapp ? "Conversa aberta. Revise a mensagem e envie no WhatsApp." : `Conversa aberta. Copie a mensagem abaixo e cole no ${hasWa() ? "WhatsApp" : "Instagram"}.`;
 });
 
 /* ---------- Ano automático no rodapé ---------- */
