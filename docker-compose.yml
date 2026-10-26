@@ -641,6 +641,195 @@ services:
           memory: 64M
         reservations:
           memory: 16M
+  agda-souza:
+    build:
+      context: /opt/Parceiras/agda-souza
+    image: agda-souza:latest
+    container_name: agda-souza
+    restart: always
+    security_opt:
+      - no-new-privileges:true
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.agda-souza.rule=Host(`agdasouza.kalliagendia.com.br`)
+      - traefik.http.routers.agda-souza.entrypoints=web,websecure
+      - traefik.http.routers.agda-souza.tls=true
+      - traefik.http.routers.agda-souza.tls.certresolver=mytlschallenge
+      - traefik.http.services.agda-souza.loadbalancer.server.port=80
+    deploy:
+      resources:
+        limits:
+          memory: 64M
+        reservations:
+          memory: 16M
+  ana-torres:
+    build:
+      context: /opt/Parceiras/ana-torres
+    image: ana-torres:latest
+    container_name: ana-torres
+    restart: always
+    security_opt:
+      - no-new-privileges:true
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.ana-torres.rule=Host(`anatorres.kalliagendia.com.br`)
+      - traefik.http.routers.ana-torres.entrypoints=web,websecure
+      - traefik.http.routers.ana-torres.tls=true
+      - traefik.http.routers.ana-torres.tls.certresolver=mytlschallenge
+      - traefik.http.services.ana-torres.loadbalancer.server.port=80
+    deploy:
+      resources:
+        limits:
+          memory: 64M
+        reservations:
+          memory: 16M
+  carol-landim:
+    build:
+      context: /opt/Parceiras/carol-landim
+    image: carol-landim:latest
+    container_name: carol-landim
+    restart: always
+    security_opt:
+      - no-new-privileges:true
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.carol-landim.rule=Host(`carollandim.kalliagendia.com.br`)
+      - traefik.http.routers.carol-landim.entrypoints=web,websecure
+      - traefik.http.routers.carol-landim.tls=true
+      - traefik.http.routers.carol-landim.tls.certresolver=mytlschallenge
+      - traefik.http.services.carol-landim.loadbalancer.server.port=80
+    deploy:
+      resources:
+        limits:
+          memory: 64M
+        reservations:
+          memory: 16M
+  cassia-lima:
+    build:
+      context: /opt/Parceiras/cassia-lima
+    image: cassia-lima:latest
+    container_name: cassia-lima
+    restart: always
+    security_opt:
+      - no-new-privileges:true
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.cassia-lima.rule=Host(`cassialima.kalliagendia.com.br`)
+      - traefik.http.routers.cassia-lima.entrypoints=web,websecure
+      - traefik.http.routers.cassia-lima.tls=true
+      - traefik.http.routers.cassia-lima.tls.certresolver=mytlschallenge
+      - traefik.http.services.cassia-lima.loadbalancer.server.port=80
+    deploy:
+      resources:
+        limits:
+          memory: 64M
+        reservations:
+          memory: 16M
+  coral-beauty:
+    build:
+      context: /opt/Parceiras/coral-beauty
+    image: coral-beauty:latest
+    container_name: coral-beauty
+    restart: always
+    security_opt:
+      - no-new-privileges:true
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.coral-beauty.rule=Host(`coralbeauty.kalliagendia.com.br`)
+      - traefik.http.routers.coral-beauty.entrypoints=web,websecure
+      - traefik.http.routers.coral-beauty.tls=true
+      - traefik.http.routers.coral-beauty.tls.certresolver=mytlschallenge
+      - traefik.http.services.coral-beauty.loadbalancer.server.port=80
+    deploy:
+      resources:
+        limits:
+          memory: 64M
+        reservations:
+          memory: 16M
+  flavia-medeiros:
+    build:
+      context: /opt/Parceiras/flavia-medeiros
+    image: flavia-medeiros:latest
+    container_name: flavia-medeiros
+    restart: always
+    security_opt:
+      - no-new-privileges:true
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.flavia-medeiros.rule=Host(`flaviamedeiros.kalliagendia.com.br`)
+      - traefik.http.routers.flavia-medeiros.entrypoints=web,websecure
+      - traefik.http.routers.flavia-medeiros.tls=true
+      - traefik.http.routers.flavia-medeiros.tls.certresolver=mytlschallenge
+      - traefik.http.services.flavia-medeiros.loadbalancer.server.port=80
+    deploy:
+      resources:
+        limits:
+          memory: 64M
+        reservations:
+          memory: 16M
+  ingrid-cristina:
+    build:
+      context: /opt/Parceiras/ingrid-cristina
+    image: ingrid-cristina:latest
+    container_name: ingrid-cristina
+    restart: always
+    security_opt:
+      - no-new-privileges:true
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.ingrid-cristina.rule=Host(`ingridcristina.kalliagendia.com.br`)
+      - traefik.http.routers.ingrid-cristina.entrypoints=web,websecure
+      - traefik.http.routers.ingrid-cristina.tls=true
+      - traefik.http.routers.ingrid-cristina.tls.certresolver=mytlschallenge
+      - traefik.http.services.ingrid-cristina.loadbalancer.server.port=80
+    deploy:
+      resources:
+        limits:
+          memory: 64M
+        reservations:
+          memory: 16M
+  pamela-borges:
+    build:
+      context: /opt/Parceiras/pamela-borges
+    image: pamela-borges:latest
+    container_name: pamela-borges
+    restart: always
+    security_opt:
+      - no-new-privileges:true
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.pamela-borges.rule=Host(`pamelaborges.kalliagendia.com.br`)
+      - traefik.http.routers.pamela-borges.entrypoints=web,websecure
+      - traefik.http.routers.pamela-borges.tls=true
+      - traefik.http.routers.pamela-borges.tls.certresolver=mytlschallenge
+      - traefik.http.services.pamela-borges.loadbalancer.server.port=80
+    deploy:
+      resources:
+        limits:
+          memory: 64M
+        reservations:
+          memory: 16M
+  stefani-oliveira:
+    build:
+      context: /opt/Parceiras/stefani-oliveira
+    image: stefani-oliveira:latest
+    container_name: stefani-oliveira
+    restart: always
+    security_opt:
+      - no-new-privileges:true
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.stefani-oliveira.rule=Host(`stefanioliveira.kalliagendia.com.br`)
+      - traefik.http.routers.stefani-oliveira.entrypoints=web,websecure
+      - traefik.http.routers.stefani-oliveira.tls=true
+      - traefik.http.routers.stefani-oliveira.tls.certresolver=mytlschallenge
+      - traefik.http.services.stefani-oliveira.loadbalancer.server.port=80
+    deploy:
+      resources:
+        limits:
+          memory: 64M
+        reservations:
+          memory: 16M
   # ── CEOR — 2ª Via de Boletos (Ambiente de Testes / Sandbox) ────────────────
   ceor-boletos:
     build:
