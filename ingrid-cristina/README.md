@@ -1,48 +1,31 @@
-# Site: Ingrid Cristina (Método Lash Empresária)
+# Ingrid Cristina — Método Lash Empresária
 
-Site estático em HTML, CSS e JavaScript puros. **Celular primeiro**: até 899 px é uma coluna única (de 600 a 899 px ela fica centralizada). **A partir de 900 px** entra a versão de computador. Sem build e sem dependências: abra o `index.html` no navegador.
+Site estático em HTML, CSS e JavaScript, sem dependências de produção ou etapa de build. Abra `index.html` no navegador ou sirva a pasta com um servidor estático. A revitalização de 26/10/2026 mantém a identidade rosa, vinho e creme do projeto.
 
-```
-ingrid-cristina/
-├── index.html        ← todo o texto das seções (separadas por comentários)
-├── css/style.css     ← cores (variáveis no topo), fontes e layout
-├── js/main.js        ← menu, formulário
-├── assets/img/       ← 1 foto real (recortada de uma arte de campanha), sem texto
-├── Dockerfile, nginx.conf, .dockerignore   ← mesmo padrão dos outros sites
-└── _fonte/
-    ├── ig/            página do Instagram salva localmente (fornecida pelo usuário) e fotos de origem
-    └── design/         mockup em PNG do Google Drive que inspirou este layout
-```
+- `index.html`: apresentação, pilares do método, bastidores, Ingrid, contato e dúvidas.
+- `css/style.css`: paleta original, layout responsivo, menu e animações.
+- `js/main.js`: navegação, galeria ampliada, movimento e preparação da conversa.
+- `assets/img`: quatro imagens novas otimizadas em WebP; o arquivo antigo foi preservado.
+- `_fonte/ig`: imagens originais fornecidas pelo usuário; não são dependências do site.
+- `ANALISE-DESIGN.md`: análise, fontes consultadas, decisões de enquadramento e validação.
+- `banco-imagens.json`: correspondência entre originais e imagens usadas.
 
-## Origem dos dados
+## Design e imagens
 
-Desta vez os dados **não vieram do HasData nem do navegador ao vivo** — o usuário forneceu a página do Instagram (`@lashempresaria`) já salva localmente (HTML completo + pasta de imagens), em `C:\Users\Usuário\Downloads\sites2510\`. Os dados foram extraídos direto desse HTML salvo, mais a aba **Pipeline** da planilha.
+Celular primeiro, sem limite artificial de 480 px para a página. A partir de 900 px, a composição usa colunas de computador; o menu completo aparece a partir de 1100 px. A galeria desliza no celular e permite ampliar cada imagem por toque ou teclado.
 
-- **Perfil:** @lashempresaria, verificado, "Ingrid Cristina | Master Educadora LED Lash Pro", **44,8 mil seguidores**, 1.432 seguindo, 1.224 posts.
-- **Bio:** "A mentora Nº1 de Goiânia que transforma Lash Designers em CEOs - Método Lash Empresária | +5.000 alunas | Master Educadora LED Lash Pro".
-- **Link da bio:** `ingridlashes.my.canva.site/page` — não encontrei WhatsApp público nesse HTML salvo (a página salva não carrega conteúdo dinâmico como o site de destino do link).
-- **Design de referência:** `@lashempresaria-web-mobile-premium.png`, mockup do Google Drive (`Kalli-Designs-Pipeline-40-Perfis-v1`), já com o nome real do método dela ("Método Lash Empresária") — bateu exatamente com a marca.
+As fotos mantêm suas proporções e não recebem desfoque. Registros de atendimento e sala de aula são apresentados como bastidores, sem atribuir nomes às pessoas. As peças com urgência de Black Friday ficaram fora do conteúdo permanente.
 
-## ⚠️ Limitação de fotos reais
+As animações acompanham entrada na tela e toque, com execução pontual. A preferência do dispositivo por movimento reduzido desativa os efeitos.
 
-O feed salvo é quase todo **artes de campanha de Black Friday** ("Black Friday Lash Empresária LED", sacolas de compras, bexigas de chiclete com o nome do curso) — não fotos de trabalho/técnica. Usei **1 única foto real**: um recorte de uma dessas artes, cortando a parte com texto e mantendo só o retrato dela. Recomendo pedir fotos originais (dela, de alunas, de trabalhos reais de lash) antes de publicar.
+## Conteúdo e contato
 
-## ⚠️ Confirmar com a Ingrid antes de publicar
+Fontes: materiais locais e perfil público [@lashempresaria](https://www.instagram.com/lashempresaria/), consultado em 26/10/2026. A formação presencial em Goiânia aparece na publicação de 16/10/2026. Datas, valores e condições devem ser consultados com a equipe; benefícios associados a campanhas não são anunciados como permanentes.
 
-1. **WhatsApp.** Não encontrado nesta coleta — acesse `ingridlashes.my.canva.site/page` para confirmar o contato antes de publicar, ou peça direto a ela.
-2. **Fotos.** Ver limitação acima — pedir material original.
-3. **Formato do método.** Não encontrei se é presencial, online ou os dois — o FAQ pede para confirmar.
+Em `js/main.js`, `CONFIG.instagram` permanece `lashempresaria`. `CONFIG.whatsapp`, `CONFIG.whatsappLink` e `CONFIG.webhook` permanecem vazios. O formulário valida os dados, mostra uma mensagem para copiar e abre o Instagram. O visitante revisa e envia a mensagem no aplicativo. Nenhum cadastro é salvo no site, e o formulário não faz uma inscrição automática.
 
-## Decisões de design e UX writing
+Se houver um contato de WhatsApp confirmado, configure `CONFIG.whatsapp` com DDI, DDD e número, somente dígitos. Os botões e o formulário passam a usar esse destino. O webhook opcional só deve ser configurado com um serviço próprio para receber os dados.
 
-- Mesma família dos outros sites do pipeline: cabeçalho fixo, títulos em serifa, botões em pílula, cards, linha do tempo e FAQ.
-- Paleta rosa/vinho (`#c1466b` / `#472431`), igual à da Ana Torres — o mockup do Drive usa a mesma paleta para os dois perfis.
-- Sem seção de galeria/trabalhos, por falta de fotos reais suficientes (mesmo motivo do site da Carol Landim).
+## Hospedagem
 
-## Formulário
-
-Em `js/main.js`, `CONFIG.whatsapp` e `CONFIG.whatsappLink` estão vazios — o formulário cai no Instagram por padrão. Preencha assim que tiver o contato real dela.
-
-## Publicar
-
-Arraste a pasta para o Netlify Drop, a Vercel ou o GitHub Pages, ou use o `Dockerfile` (nginx). Não envie a pasta `_fonte`. Não precisa de build.
+O padrão existente de `Dockerfile`, `nginx.conf` e `.dockerignore` foi mantido. Para hospedagem estática, são necessários `index.html`, `css`, `js` e `assets`. A pasta `_fonte` contém o material de referência e não precisa ser publicada.
