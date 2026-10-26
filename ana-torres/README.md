@@ -87,3 +87,9 @@ Em `js/main.js`, no bloco `CONFIG`:
 ## Publicar
 
 Arraste a pasta para o Netlify Drop, a Vercel ou o GitHub Pages, ou use o `Dockerfile` (nginx). Não envie a pasta `_fonte`. Não precisa de build.
+
+## Correção da capa — 26/10/2026
+
+A abertura e a imagem de compartilhamento agora usam `ana-torres-retrato-confirmado-20261026.webp`, uma cópia do retrato `ana-retrato-sentada.webp`, derivado de `_fonte/ig/490407876_18511906453036397_15160364981367130_n.jpg`. O usuário confirmou expressamente que essa pessoa é Ana Torres. A imagem aparece inteira, com proporção natural; no computador sua largura foi equilibrada em 320 px.
+
+O nome antigo `hero-ana.webp` já havia sido usado para uma aluna, conforme o histórico acima. Mesmo depois da substituição do conteúdo desse arquivo, cópias antigas em cache podem mostrar a aluna. A página deixou de referenciar esse nome; a foto confirmada possui um caminho exclusivo. Os retratos de apresentação e os registros de alunas continuam em seções distintas.
