@@ -559,7 +559,7 @@ services:
       - denise_uploads:/app/backend/uploads
   karoll-tavares:
     build:
-      context: /opt/Parceiras/karoll-tavares
+      context: /opt/Parcerias-Kalli/karoll-tavares
     image: karoll-tavares:latest
     container_name: karoll-tavares
     restart: always
@@ -580,7 +580,7 @@ services:
           memory: 16M
   gih-doliveira:
     build:
-      context: /opt/Parceiras/gih-doliveira
+      context: /opt/Parcerias-Kalli/gih-doliveira
     image: gih-doliveira:latest
     container_name: gih-doliveira
     restart: always
@@ -601,7 +601,7 @@ services:
           memory: 16M
   amanda-marins:
     build:
-      context: /opt/Parceiras/amanda-marins
+      context: /opt/Parcerias-Kalli/amanda-marins
     image: amanda-marins:latest
     container_name: amanda-marins
     restart: always
@@ -622,7 +622,7 @@ services:
           memory: 16M
   makecomgaby:
     build:
-      context: /opt/Parceiras/makecomgaby
+      context: /opt/Parcerias-Kalli/makecomgaby
     image: makecomgaby:latest
     container_name: makecomgaby
     restart: always
@@ -643,7 +643,7 @@ services:
           memory: 16M
   agda-souza:
     build:
-      context: /opt/Parceiras/agda-souza
+      context: /opt/Parcerias-Kalli/agda-souza
     image: agda-souza:latest
     container_name: agda-souza
     restart: always
@@ -664,7 +664,7 @@ services:
           memory: 16M
   ana-torres:
     build:
-      context: /opt/Parceiras/ana-torres
+      context: /opt/Parcerias-Kalli/ana-torres
     image: ana-torres:latest
     container_name: ana-torres
     restart: always
@@ -685,7 +685,7 @@ services:
           memory: 16M
   carol-landim:
     build:
-      context: /opt/Parceiras/carol-landim
+      context: /opt/Parcerias-Kalli/carol-landim
     image: carol-landim:latest
     container_name: carol-landim
     restart: always
@@ -706,7 +706,7 @@ services:
           memory: 16M
   cassia-lima:
     build:
-      context: /opt/Parceiras/cassia-lima
+      context: /opt/Parcerias-Kalli/cassia-lima
     image: cassia-lima:latest
     container_name: cassia-lima
     restart: always
@@ -727,7 +727,7 @@ services:
           memory: 16M
   coral-beauty:
     build:
-      context: /opt/Parceiras/coral-beauty
+      context: /opt/Parcerias-Kalli/coral-beauty
     image: coral-beauty:latest
     container_name: coral-beauty
     restart: always
@@ -748,7 +748,7 @@ services:
           memory: 16M
   flavia-medeiros:
     build:
-      context: /opt/Parceiras/flavia-medeiros
+      context: /opt/Parcerias-Kalli/flavia-medeiros
     image: flavia-medeiros:latest
     container_name: flavia-medeiros
     restart: always
@@ -769,7 +769,7 @@ services:
           memory: 16M
   ingrid-cristina:
     build:
-      context: /opt/Parceiras/ingrid-cristina
+      context: /opt/Parcerias-Kalli/ingrid-cristina
     image: ingrid-cristina:latest
     container_name: ingrid-cristina
     restart: always
@@ -790,7 +790,7 @@ services:
           memory: 16M
   pamela-borges:
     build:
-      context: /opt/Parceiras/pamela-borges
+      context: /opt/Parcerias-Kalli/pamela-borges
     image: pamela-borges:latest
     container_name: pamela-borges
     restart: always
@@ -811,7 +811,7 @@ services:
           memory: 16M
   stefani-oliveira:
     build:
-      context: /opt/Parceiras/stefani-oliveira
+      context: /opt/Parcerias-Kalli/stefani-oliveira
     image: stefani-oliveira:latest
     container_name: stefani-oliveira
     restart: always
@@ -848,10 +848,34 @@ services:
       - /opt/Projeto-Escola-CEOR/.env
     labels:
       - traefik.enable=true
-      - traefik.http.routers.ceor-boletos.rule=Host(`boletos.symbionlab.com.br`) || Host(`ceor.symbionlab.com.br`)
+      # Dominio oficial da escola: ceeducacionaloliveirarocha.com.br (www redireciona para o dominio sem www).
+      - traefik.http.routers.ceor-boletos.rule=Host(`ceeducacionaloliveirarocha.com.br`) || Host(`www.ceeducacionaloliveirarocha.com.br`)
+      - traefik.http.routers.ceor-boletos.service=ceor-boletos
       - traefik.http.routers.ceor-boletos.tls=true
       - traefik.http.routers.ceor-boletos.entrypoints=web,websecure
       - traefik.http.routers.ceor-boletos.tls.certresolver=mytlschallenge
+      - traefik.http.routers.ceor-boletos.middlewares=ceor-www-redirect
+      - traefik.http.middlewares.ceor-www-redirect.redirectregex.regex=^https://www\.(.+)
+      - traefik.http.middlewares.ceor-www-redirect.redirectregex.replacement=https://$${1}
+      - traefik.http.middlewares.ceor-www-redirect.redirectregex.permanent=true
+      # Enderecos antigos (sandbox): o Asaas nao segue redirecionamento, entao o webhook continua
+      # respondendo neles ate ser recadastrado no dominio novo; o resto redireciona para o dominio oficial.
+      - traefik.http.routers.ceor-boletos-webhook-legado.rule=(Host(`boletos.symbionlab.com.br`) || Host(`ceor.symbionlab.com.br`)) && PathPrefix(`/api/v1/webhooks/`)
+      - traefik.http.routers.ceor-boletos-webhook-legado.priority=200
+      - traefik.http.routers.ceor-boletos-webhook-legado.service=ceor-boletos
+      - traefik.http.routers.ceor-boletos-webhook-legado.tls=true
+      - traefik.http.routers.ceor-boletos-webhook-legado.entrypoints=web,websecure
+      - traefik.http.routers.ceor-boletos-webhook-legado.tls.certresolver=mytlschallenge
+      - traefik.http.routers.ceor-boletos-legado.rule=Host(`boletos.symbionlab.com.br`) || Host(`ceor.symbionlab.com.br`)
+      - traefik.http.routers.ceor-boletos-legado.priority=10
+      - traefik.http.routers.ceor-boletos-legado.service=ceor-boletos
+      - traefik.http.routers.ceor-boletos-legado.tls=true
+      - traefik.http.routers.ceor-boletos-legado.entrypoints=web,websecure
+      - traefik.http.routers.ceor-boletos-legado.tls.certresolver=mytlschallenge
+      - traefik.http.routers.ceor-boletos-legado.middlewares=ceor-legado-redirect
+      - traefik.http.middlewares.ceor-legado-redirect.redirectregex.regex=^https://[^/]+/(.*)
+      - traefik.http.middlewares.ceor-legado-redirect.redirectregex.replacement=https://ceeducacionaloliveirarocha.com.br/$${1}
+      - traefik.http.middlewares.ceor-legado-redirect.redirectregex.permanent=true
       - traefik.http.services.ceor-boletos.loadbalancer.server.port=8000
     deploy:
       resources:
@@ -859,6 +883,8 @@ services:
           memory: 384M
         reservations:
           memory: 64M
+    volumes:
+      - ceor_uploads:/app/frontend/uploads
 volumes:
   traefik_data:
     external: true
@@ -871,6 +897,7 @@ volumes:
   evolution_store:
   kalli_uploads:
   denise_uploads:
+  ceor_uploads:
 networks:
   geovision:
     external: true
