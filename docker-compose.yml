@@ -1,6 +1,6 @@
 services:
   traefik:
-    image: traefik:v3.7.1
+    image: traefik:v3.7.16
     command:
       - --global.sendAnonymousUsage=false
       - --providers.docker=true
@@ -229,7 +229,7 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
   n8n:
-    image: docker.n8n.io/n8nio/n8n:2.41.6
+    image: docker.n8n.io/n8nio/n8n:2.44.6
     security_opt:
       - no-new-privileges:true
     depends_on:
@@ -338,6 +338,8 @@ services:
     command: ["uvicorn", "app.admin_main:app", "--host", "0.0.0.0", "--port", "8000"]
     env_file:
       - /opt/kalliagendia/backend/.env.production
+    environment:
+      PROSPECCAO_SHEET_ID: "1rLPkWjX-Nz536Ys2Fh6K8qa_S1tfZCvr-SjFpG9g1Ik"
     depends_on:
       backend:
         condition: service_started
@@ -830,6 +832,27 @@ services:
           memory: 64M
         reservations:
           memory: 16M
+  leticia-boar:
+    build:
+      context: /opt/Parcerias-Kalli/leticia-boar
+    image: leticia-boar:latest
+    container_name: leticia-boar
+    restart: always
+    security_opt:
+      - no-new-privileges:true
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.leticia-boar.rule=Host(`leticiaboar.kalliagendia.com.br`)
+      - traefik.http.routers.leticia-boar.entrypoints=web,websecure
+      - traefik.http.routers.leticia-boar.tls=true
+      - traefik.http.routers.leticia-boar.tls.certresolver=mytlschallenge
+      - traefik.http.services.leticia-boar.loadbalancer.server.port=80
+    deploy:
+      resources:
+        limits:
+          memory: 64M
+        reservations:
+          memory: 16M
   # ── CEOR — 2ª Via de Boletos (Ambiente de Testes / Sandbox) ────────────────
   ceor-boletos:
     build:
@@ -849,7 +872,9 @@ services:
     labels:
       - traefik.enable=true
       # Dominio oficial da escola: ceeducacionaloliveirarocha.com.br (www redireciona para o dominio sem www).
-      - traefik.http.routers.ceor-boletos.rule=Host(`ceeducacionaloliveirarocha.com.br`) || Host(`www.ceeducacionaloliveirarocha.com.br`)
+      # /api/v1/links (rota do bot, protegida so pela SERVICE_KEY) NAO e publica: o n8n chama pela rede interna
+      # do Docker (http://ceor-boletos:8000). Aqui o Traefik responde 404 a ela.
+      - traefik.http.routers.ceor-boletos.rule=(Host(`ceeducacionaloliveirarocha.com.br`) || Host(`www.ceeducacionaloliveirarocha.com.br`)) && !PathPrefix(`/api/v1/links`)
       - traefik.http.routers.ceor-boletos.service=ceor-boletos
       - traefik.http.routers.ceor-boletos.tls=true
       - traefik.http.routers.ceor-boletos.entrypoints=web,websecure
