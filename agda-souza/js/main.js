@@ -19,6 +19,7 @@ const hasWa = () => Boolean(CONFIG.whatsapp || CONFIG.whatsappLink);
 const waLink = (msg) =>
   CONFIG.whatsapp ? `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(msg)}` : CONFIG.whatsappLink;
 const dmLink = `https://ig.me/m/${CONFIG.instagram}`;
+document.documentElement.classList.add("has-js");
 
 /* ---------- WhatsApp: aparece se houver link ou número configurado; senão vira Instagram ---------- */
 $$(".js-whatsapp").forEach(a => {
@@ -168,8 +169,13 @@ $$("[data-interesse]").forEach((link) =>
   link.addEventListener("click", () => {
     interesse.value = link.dataset.interesse;
     clearError(interesse);
+    $$(".service.is-picked").forEach((el) => el.classList.remove("is-picked"));
+    link.classList.add("is-picked");
+    interesse.classList.remove("is-filled");
+    void interesse.offsetWidth;
+    interesse.classList.add("is-filled");
     // Keep focus on the selected link; moving focus later can interrupt scrolling.
-    status.textContent = "Tema selecionado. Complete seus dados para iniciar a conversa.";
+    status.textContent = `Você escolheu “${link.dataset.interesse}”. Complete seus dados para iniciar a conversa.`;
   })
 );
 
@@ -247,6 +253,7 @@ form.addEventListener("submit", async (e) => {
   const invalid = Object.keys(rules).map((n) => form.elements[n]).filter((i) => !validate(i));
   if (invalid.length) {
     invalid[0].focus();
+    if (!motionPreference.matches) form.animate([{ translate: "0 0" }, { translate: "-6px 0" }, { translate: "5px 0" }, { translate: "-3px 0" }, { translate: "0 0" }], { duration: 380, easing: "ease-out" });
     return;
   }
 
@@ -392,4 +399,78 @@ photoDialog.addEventListener("close", () => photoTrigger?.focus({ preventScroll:
     else queue();
   });
   queue();
+})();
+
+
+/* =========================================================
+   Pacote de experiência (mesma linguagem do site da Cássia Lima)
+   ========================================================= */
+(() => {
+  const calm = () => motionPreference.matches;
+
+  // Cabeçalho ganha sombra ao rolar.
+  let ticking = false;
+  const onScroll = () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => { header.classList.toggle("is-scrolled", scrollY > 12); ticking = false; });
+  };
+  addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  // Números que contam ao aparecer (o valor final já está no HTML).
+  const fmt = (n) => Math.round(n).toLocaleString("pt-BR");
+  const countUp = (el) => {
+    const target = parseFloat(el.dataset.count);
+    const pre = el.dataset.prefix || "";
+    const suf = el.dataset.suffix || "";
+    const final = pre + fmt(target) + suf;
+    if (calm()) { el.textContent = final; return; }
+    const start = performance.now();
+    const step = (now) => {
+      const t = Math.min(1, (now - start) / 1300);
+      el.textContent = pre + fmt(target * (1 - Math.pow(1 - t, 4))) + suf;
+      if (t < 1) requestAnimationFrame(step); else el.textContent = final;
+    };
+    requestAnimationFrame(step);
+  };
+
+  if ("IntersectionObserver" in window) {
+    const once = (els, cb, opts) => {
+      const io = new IntersectionObserver((entries, obs) => entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        cb(e.target);
+        obs.unobserve(e.target);
+      }), opts);
+      els.forEach((el) => io.observe(el));
+    };
+    once($$("[data-count]"), countUp, { threshold: 0.6 });
+    once($$(".section h2"), (h) => h.classList.add("is-inked"), { threshold: 0.6 });
+    if (!calm()) {
+      const pics = $$(".metodo-photo, .event-section > figure");
+      pics.forEach((el) => el.classList.add("img-reveal"));
+      once(pics, (el) => el.classList.add("is-visible"), { threshold: 0.01, rootMargin: "0px 0px -6% 0px" });
+      motionPreference.addEventListener("change", () => { if (calm()) pics.forEach((el) => el.classList.add("is-visible")); });
+    }
+  }
+
+  // Abertura: foto com zoom suave, assinatura escrita e selo entrando.
+  const play = (el, frames, opts) => (!el || calm() || !el.animate) ? null : el.animate(frames, opts);
+  play($(".hero-photo"), [{ opacity: 0, scale: "1.08" }, { opacity: 1, scale: "1" }], { duration: 1800, easing: "cubic-bezier(.16,1,.3,1)", fill: "backwards" });
+  play($(".hero-photo-frame .signature"), [{ clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0 0 0)" }], { duration: 1500, delay: 900, easing: "ease-in-out", fill: "backwards" });
+  play($(".hero-badge"), [{ opacity: 0, translate: "0 14px" }, { opacity: 1, translate: "0 0" }], { duration: 900, delay: 700, easing: "cubic-bezier(.16,1,.3,1)", fill: "backwards" });
+
+  // A foto da apresentação acompanha a rolagem de leve (só no computador, sem cortar a imagem).
+  const drifting = $(".metodo-photo");
+  const wide = matchMedia("(min-width:900px)");
+  let raf = false;
+  const drift = () => {
+    raf = false;
+    if (calm() || !wide.matches) { drifting.style.translate = ""; return; }
+    const r = drifting.getBoundingClientRect();
+    const p = (r.top + r.height / 2 - innerHeight / 2) / innerHeight;
+    drifting.style.translate = `0 ${Math.max(-1, Math.min(1, p)) * -18}px`;
+  };
+  addEventListener("scroll", () => { if (!raf) { raf = true; requestAnimationFrame(drift); } }, { passive: true });
+  drift();
 })();
