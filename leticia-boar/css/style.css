@@ -414,3 +414,24 @@ svg{width:22px;height:22px;flex:none}.svg-sprite{position:absolute;width:0;heigh
 @media(max-width:359px){.hero h1{font-size:2.5rem}.hero-signals{gap:10px}.hero-actions .btn{font-size:.69rem;padding-inline:14px}.look-tabs button{font-size:.65rem}.look-viewer .photo-open{height:360px}.education-card{padding:26px 20px}.brand{font-size:1.6rem}}
 @media(hover:hover) and (pointer:fine){.btn-primary:hover{background:var(--shell);color:var(--inkdeep)}.education-card .btn-ghost:hover{background:#d6c8c215}.look-tabs button:hover:not([aria-selected=true]){color:var(--graphite);background:#fff}}
 @media(prefers-reduced-motion:reduce){.ribbon-toggle{display:none}.ribbon{padding-right:0}.ribbon-track{animation:none}.hero-badge{animation:none}.look-caption.is-changing{animation:none}.studio-photo{translate:none!important}}
+
+/* Cada produção acompanha a proporção original, inclusive as horizontais. */
+.look-viewer .photo-open{height:auto;aspect-ratio:auto}
+.look-viewer .photo-open img{width:100%;height:auto;object-fit:contain}
+
+@media(max-width:599px){
+ .hero{background:var(--inkpanel)}
+ .hero-photo-frame{height:clamp(300px,90vw,380px)}
+ .hero-photo-frame::after{background:linear-gradient(180deg,#19191d20,transparent 18%,transparent 45%,var(--inkpanel) 100%)}
+ .hero-badge{bottom:64px;padding:10px 13px}
+ .hero-badge strong{font-size:1.35rem}.hero-badge>span{font-size:.53rem;letter-spacing:.1em}
+ .hero-copy{margin-top:-28px;padding:0 var(--gutter) 32px;width:100%;gap:0}
+ .hero-kicker{max-width:100%;font-size:.56rem;line-height:1.6;margin-bottom:16px;letter-spacing:.12em}
+ .hero h1{width:100%;max-width:none;font-size:clamp(2.25rem,9.8vw,2.9rem);line-height:1.12;margin-bottom:20px}
+ .hero h1 em{display:inline}
+ .hero-lead{max-width:none;width:100%;font-size:.9rem;line-height:1.7;margin-bottom:24px;text-wrap:pretty}
+ .hero-lead strong{display:block;margin-top:5px;font-weight:500}
+ .hero-actions{margin-bottom:24px;gap:12px}
+ .hero-signals{justify-content:space-between;gap:10px;padding-top:18px}
+ .hero-signals li{font-size:.66rem}
+}
