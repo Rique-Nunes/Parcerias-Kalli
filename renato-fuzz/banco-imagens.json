@@ -1,0 +1,72 @@
+[
+  {
+    "original": "_fontes/ig/749161600_18604874944003780_508802545787363585_n.jpg",
+    "asset": "assets/img/corte-textura.webp",
+    "width": 1000,
+    "height": 1279,
+    "contexto": "Portfólio ou registro de aula, sem identificar nominalmente clientes e participantes."
+  },
+  {
+    "original": "_fontes/ig/755734845_18605157376003780_3689944021854959974_n.jpg",
+    "asset": "assets/img/corte-movimento.webp",
+    "width": 1000,
+    "height": 1333,
+    "contexto": "Portfólio ou registro de aula, sem identificar nominalmente clientes e participantes."
+  },
+  {
+    "original": "_fontes/ig/759622633_18606449683003780_3594498114923054581_n.jpg",
+    "asset": "assets/img/encontro-profissionais.webp",
+    "width": 1125,
+    "height": 1500,
+    "contexto": "Portfólio ou registro de aula, sem identificar nominalmente clientes e participantes."
+  },
+  {
+    "original": "_fontes/ig/764116499_18609449362003780_2047475885831935147_n.jpg",
+    "asset": "assets/img/renato-em-aula.webp",
+    "width": 720,
+    "height": 1280,
+    "contexto": "Portfólio ou registro de aula, sem identificar nominalmente clientes e participantes."
+  },
+  {
+    "original": "_fontes/ig/791922766_18618938005003780_9094009499999416733_n.jpg",
+    "asset": "assets/img/turma-presencial.webp",
+    "width": 844,
+    "height": 1500,
+    "contexto": "Portfólio ou registro de aula, sem identificar nominalmente clientes e participantes."
+  },
+  {
+    "original": "_fontes/ig/802223674_18621753388003780_7196569887924614149_n.jpg",
+    "asset": "assets/img/educacao-em-grupo.webp",
+    "width": 844,
+    "height": 1500,
+    "contexto": "Portfólio ou registro de aula, sem identificar nominalmente clientes e participantes."
+  },
+  {
+    "original": "_fontes/ig/837888048_18630849928003780_3511271752254158431_n.jpg",
+    "asset": "assets/img/corte-na-pratica.webp",
+    "width": 1100,
+    "height": 1467,
+    "contexto": "Portfólio ou registro de aula, sem identificar nominalmente clientes e participantes."
+  },
+  {
+    "original": "https://renatofuzz.com.br/bio-link/images/hero.jpg",
+    "asset": "assets/img/renato-retrato-oficial.webp",
+    "width": 1100,
+    "height": 1648,
+    "contexto": "Retrato identificado no site oficial do Renato Fuzz. Não é foto de aluno ou cliente."
+  },
+  {
+    "original": "https://i.ytimg.com/vi/3Qg-zyZYz-w/hqdefault.jpg",
+    "asset": "assets/img/youtube-bob.jpg",
+    "width": 480,
+    "height": 360,
+    "contexto": "Miniatura oficial da aula https://www.youtube.com/watch?v=3Qg-zyZYz-w, consultada em 31/10/2026."
+  },
+  {
+    "original": "https://i.ytimg.com/vi/dtNtTOeCqV0/hqdefault.jpg",
+    "asset": "assets/img/youtube-camadas.jpg",
+    "width": 480,
+    "height": 360,
+    "contexto": "Miniatura oficial da aula https://www.youtube.com/watch?v=dtNtTOeCqV0, consultada em 31/10/2026."
+  }
+]
