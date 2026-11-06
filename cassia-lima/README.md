@@ -21,11 +21,11 @@ cassia-lima/
 
 - **Perfil:** @cassialima.micro, "Cássia Lima - Micropigmentadora e Mentora", 30,2 mil seguidores.
 - **Bio:** Máster Internacional · +11 anos · +3.000 alunas formadas · cursos presenciais e online · Nano Fios · Labial.
-- **Link da bio:** `maapp.com.br/cassialimamicro` — WhatsApp ainda não confirmado.
+- **WhatsApp:** +55 45 9962-8866 (`554599628866`), configurado em `js/main.js`.
 
 ## ⚠️ Confirmar com a Cássia antes de publicar
 
-1. **WhatsApp.** `CONFIG.whatsapp` está vazio em `js/main.js`; enquanto isso, botões e formulário levam ao Instagram. Preencha com DDI + DDD + número só com dígitos.
+1. **WhatsApp.** Configurado com `554599628866` em `js/main.js`. Caso seja celular que exija o 9 adicional (ex.: `5545999628866`), basta atualizar em `CONFIG.whatsapp`.
 2. **Fotos.** Confirme que os retratos (poltrona, terno cinza, estúdio, foto com alunas) são dela e que ela autoriza o uso das fotos de turmas.
 3. **Cursos.** Nano fios, Labial e Dermaplaning vêm da bio e dos destaques — confirme a grade oficial.
 

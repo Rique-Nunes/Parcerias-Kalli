@@ -7,7 +7,7 @@ const CONFIG = {
   // Preencha "whatsapp" com DDI + DDD + número (só dígitos) assim que ela passar o contato.
   // Enquanto estiver vazio, os botões e o formulário levam para o Instagram.
   whatsappLink: "",
-  whatsapp: "", // ex.: "5511999999999"
+  whatsapp: "554599628866", // DDI + DDD + número (só dígitos)
   instagram: "cassialima.micro",
   // Opcional: URL de um webhook (n8n, Formspree, Google Apps Script...).
   webhook: "",
@@ -408,10 +408,11 @@ form.addEventListener("submit", async (e) => {
   const msg = montarMensagem(dados);
   $("#message-preview").hidden = false;
   $("#mensagem-pronta").value = msg.replace(/\*/g, "");
-  window.open(hasWa() ? waLink(msg) : dmLink, "_blank", "noopener");
-  status.textContent = CONFIG.whatsapp
-    ? "Conversa aberta. Revise a mensagem e envie no WhatsApp."
-    : `Conversa aberta. Copie a mensagem abaixo e cole no ${hasWa() ? "WhatsApp" : "Instagram"}.`;
+  const link = hasWa() ? waLink(msg) : dmLink;
+  window.open(link, "_blank", "noopener");
+  status.innerHTML = CONFIG.whatsapp
+    ? `Conversa aberta. Se não abriu automaticamente, <a href="${link}" target="_blank" rel="noopener">clique aqui para abrir o WhatsApp</a>.`
+    : `Conversa aberta. Copie a mensagem abaixo e cole no <a href="${dmLink}" target="_blank" rel="noopener">Instagram</a>.`;
 });
 
 $("#ano").textContent = new Date().getFullYear();
