@@ -319,18 +319,42 @@ function setSubmitLabel() {
 }
 setSubmitLabel();
 
-fone.addEventListener("input", () => {
-  const d = fone.value.replace(/\D/g, "").slice(0, 11);
+function limparTelefone(valor) {
+  let raw = (valor || "").trim();
+  if (raw.startsWith("+55") || raw.startsWith("+ 55")) {
+    raw = raw.replace(/^\+\s*55\s*/, "");
+  } else if (raw.startsWith("+")) {
+    raw = raw.slice(1);
+  }
+  let d = raw.replace(/\D/g, "");
+  if (d.startsWith("0") && d.length > 10) {
+    d = d.slice(1);
+  }
+  if (d.startsWith("55") && d.length > 11) {
+    d = d.slice(2);
+  }
+  return d.slice(0, 11);
+}
+
+function formatarTelefone(valor) {
+  const d = limparTelefone(valor);
   let out = d;
   if (d.length > 2) out = `(${d.slice(0, 2)}) ${d.slice(2)}`;
   if (d.length > 6) out = `(${d.slice(0, 2)}) ${d.slice(2, d.length - 4)}-${d.slice(-4)}`;
-  fone.value = out;
-});
+  return out;
+}
+
+const aplicarMascaraFone = () => {
+  fone.value = formatarTelefone(fone.value);
+};
+fone.addEventListener("input", aplicarMascaraFone);
+fone.addEventListener("change", aplicarMascaraFone);
+if (fone.value) aplicarMascaraFone();
 
 const rules = {
   nome: (v) => (v.trim().length >= 2 ? "" : "Digite seu nome para a Cássia saber com quem fala."),
   whatsapp: (v) => {
-    const d = v.replace(/\D/g, "");
+    const d = limparTelefone(v);
     return d.length >= 10 && d.length <= 11 ? "" : "Digite o WhatsApp com DDD. Ex.: (11) 98765-4321";
   },
   interesse: (v) => (v ? "" : "Escolha uma opção. Se estiver em dúvida, marque “Outro assunto”."),
@@ -381,7 +405,7 @@ form.addEventListener("submit", async (e) => {
   const f = form.elements;
   const dados = {
     nome: f.nome.value.trim(),
-    whatsapp: f.whatsapp.value,
+    whatsapp: formatarTelefone(f.whatsapp.value),
     cidade: f.cidade.value.trim(),
     interesse: f.interesse.value,
     origem: "site-cassia-lima",
