@@ -14,8 +14,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=DM+Sans:wght@400;500;700&family=Allura&display=swap" rel="stylesheet">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231d130d'/%3E%3Ctext x='50%25' y='68%25' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-size='38' fill='%23d6ad74'%3EC%3C/text%3E%3C/svg%3E">
-  <link rel="stylesheet" href="css/style.css?v=20261029-cassia-estudio">
-  <script src="js/main.js?v=20261029-cassia-estudio" defer></script>
+  <link rel="stylesheet" href="css/style.css?v=20261109-refino">
+  <script src="js/main.js?v=20261109-refino" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
@@ -43,13 +43,13 @@
         <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu"><span></span><span></span><span></span></button>
         <nav class="nav" id="menu" aria-label="Principal">
           <ul>
-            <li><a href="#formacao">A formação</a></li>
+            <li><a class="nav-courses" href="cursos.html">Todos os cursos</a></li>
             <li><a href="#resultados">Resultados</a></li>
             <li><a href="#mentora">A mentora</a></li>
             <li><a href="#alunas">Alunas</a></li>
             <li><a href="#duvidas">Dúvidas</a></li>
           </ul>
-          <a class="btn btn-gold" href="#interesse">Quero ser aluna <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a class="btn btn-gold" href="cursos.html">Explorar cursos <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
         </nav>
       </div>
     </header>
@@ -63,9 +63,10 @@
           <h1 id="hero-titulo">A técnica que valoriza <em>cada traço.</em></h1>
           <p class="hero-lead"><strong>Formação em Micropigmentação.</strong> Nano fios, labial e a rotina profissional de quem já formou mais de 3.000 alunas, em cursos presenciais e online.</p>
           <div class="hero-actions">
-            <a class="btn btn-gold" href="#formacao">Conhecer a formação <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a class="btn btn-gold" href="cursos.html">Explorar os 13 cursos <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
             <a class="btn btn-ghost js-whatsapp" href="https://wa.me/554599628866?text=Oi%2C%20C%C3%A1ssia!%20Vim%20pelo%20seu%20site%20e%20quero%20saber%20mais%20sobre%20a%20Forma%C3%A7%C3%A3o%20em%20Micropigmenta%C3%A7%C3%A3o." target="_blank" rel="noopener" data-msg="Oi, Cássia! Vim pelo seu site e quero saber mais sobre a Formação em Micropigmentação."><svg aria-hidden="true"><use href="#i-whats"/></svg> Falar com a Cássia</a>
           </div>
+          <div class="course-countries"><span>Cursos no</span><ul aria-label="Países onde a Cássia oferece cursos"><li><img src="assets/flags/br.svg" width="32" height="22" alt="">Brasil</li><li><img src="assets/flags/ar.svg" width="32" height="22" alt="">Argentina</li><li><img src="assets/flags/py.svg" width="32" height="22" alt="">Paraguai</li></ul></div>
           <ul class="hero-signals" aria-label="Diferenciais da formação">
             <li><svg aria-hidden="true"><use href="#i-check"/></svg> Prática guiada</li>
             <li><svg aria-hidden="true"><use href="#i-cap"/></svg> Certificado</li>
@@ -103,7 +104,7 @@
           <p class="eyebrow">01 · A formação</p>
           <h2 id="formacao-titulo">Da primeira linha ao <em>resultado cicatrizado.</em></h2>
           <p class="section-lead">Cursos que unem desenho, leitura de rosto e prática, para você atender com segurança e cobrar pelo valor do seu trabalho.</p>
-          <a class="text-link" href="#interesse">Quero saber das próximas turmas <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a class="btn btn-gold course-cta" href="cursos.html">Ver todos os cursos <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
         </div>
         <ul class="service-list">
           <li><a class="service" href="#interesse" data-interesse="Nano fios"><span class="service-icon"><svg aria-hidden="true"><use href="#i-brow"/></svg></span><span class="service-body"><small>Sobrancelhas</small><strong>Nano fios</strong><span>Fios desenhados um a um, com leitura de rosto e naturalidade no resultado.</span></span><span class="service-go"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a></li>
@@ -147,6 +148,8 @@
           </figure>
         </div>
       </section>
+
+      <section class="course-invitation" aria-labelledby="invite-title"><div><p class="eyebrow">O próximo capítulo é seu</p><h2 id="invite-title">Uma formação para <em>cada novo passo.</em></h2><p>Sobrancelhas, lábios, pele, olhos, capilar e barba. Explore as 13 modalidades e encontre a sua.</p></div><a class="btn btn-gold" href="cursos.html">Encontrar meu curso <svg aria-hidden="true"><use href="#i-arrow"/></svg></a></section>
 
       <!-- ============ MENTORA ============ -->
       <section class="section mentor" id="mentora" aria-labelledby="mentora-titulo">
@@ -224,8 +227,19 @@
             <select id="momento" name="interesse" required aria-describedby="momento-erro">
               <option value="">Escolha uma opção</option>
               <option>Nano fios</option>
-              <option>Labial</option>
+              <option>Design de sobrancelhas</option>
               <option>Dermaplaning</option>
+              <option>Jato de plasma</option>
+              <option>Limpeza de pele</option>
+              <option>Microblading</option>
+              <option>Shadow</option>
+              <option>Labial</option>
+              <option>Delineado de olhos</option>
+              <option>Brow Lamination</option>
+              <option>Hidra Gloss</option>
+              <option>Micro capilar</option>
+              <option>Micropigmentação de barba</option>
+              <option>Shadow Line</option>
               <option>Quero começar do zero</option>
               <option>Já atendo e quero evoluir a técnica</option>
               <option>Quero aumentar o faturamento</option>
@@ -259,6 +273,7 @@
     <footer class="site-footer">
       <a class="brand" href="#inicio" aria-label="Cássia Lima, voltar ao início"><span>Cássia Lima</span><small>MICROPIGMENTAÇÃO</small></a>
       <div class="footer-links">
+        <a href="cursos.html">Todos os cursos</a>
         <a href="https://www.instagram.com/cassialima.micro/" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-insta"/></svg> @cassialima.micro</a>
         <a class="js-whatsapp" data-only-whatsapp href="https://wa.me/554599628866?text=Oi%2C%20C%C3%A1ssia!%20Vim%20pelo%20seu%20site%20e%20quero%20saber%20mais%20sobre%20a%20Forma%C3%A7%C3%A3o%20em%20Micropigmenta%C3%A7%C3%A3o." target="_blank" rel="noopener" data-msg="Oi, Cássia! Vim pelo seu site e quero saber mais sobre a Formação em Micropigmentação."><svg aria-hidden="true"><use href="#i-whats"/></svg> WhatsApp</a>
       </div>
@@ -268,7 +283,7 @@
 
   <!-- Barra de ação fixa no celular -->
   <div class="dock" id="dock">
-    <a class="btn btn-gold" href="#interesse">Quero ser aluna <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    <a class="btn btn-gold" href="cursos.html">Explorar cursos <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
     <a class="dock-ig" href="https://www.instagram.com/cassialima.micro/" target="_blank" rel="noopener" aria-label="Abrir o Instagram da Cássia"><svg aria-hidden="true"><use href="#i-insta"/></svg></a>
   </div>
   <dialog class="photo-dialog" id="photo-dialog" aria-label="Foto ampliada"><button class="photo-close" type="button" aria-label="Fechar foto ampliada"><svg aria-hidden="true"><use href="#i-close"/></svg></button><figure><img id="photo-expanded" alt=""><figcaption id="photo-caption"></figcaption></figure></dialog>

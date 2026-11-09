@@ -363,3 +363,19 @@ svg{width:22px;height:22px;flex:none}.svg-sprite{position:absolute;width:0;heigh
  .btn:hover,.service:hover{translate:none}
  .motion-ripple,.hero-actions .btn-gold::after{display:none}
 }
+
+/* Países de atuação — arquivos vetoriais locais, sem emojis. */
+.nav li a.nav-courses{color:var(--mel-2);font-weight:700}
+.formacao-banner .course-cta{margin-top:24px}
+.course-invitation{display:flex;align-items:center;justify-content:space-between;gap:48px;padding:48px var(--pad);background:linear-gradient(115deg,var(--champagne),var(--linen));border-block:1px solid var(--line)}
+.course-invitation h2{font-size:clamp(2.2rem,4vw,3.3rem);max-width:20ch;margin-bottom:14px}
+.course-invitation p:not(.eyebrow){font-size:.9rem;color:var(--soft);max-width:55ch}
+.course-invitation>.btn{flex:none;background:var(--chocolate);color:var(--mel-2);box-shadow:0 12px 26px -16px var(--bronze);min-height:56px}
+@media(min-width:1100px){.nav li a.nav-courses{padding-inline:14px;border:1px solid #d6ad7466;border-radius:999px;background:#d6ad7414}.nav li a.nav-courses::after{display:none}}
+@media(max-width:699px){.course-invitation{flex-direction:column;align-items:stretch;gap:24px;padding-block:36px}.course-invitation>.btn,.formacao-banner .course-cta{width:100%}}
+.course-countries{display:grid;gap:9px;margin:0 0 24px;color:var(--champagne);width:100%}
+.course-countries>span{font-size:.58rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--mel)}
+.course-countries ul{display:flex;flex-wrap:wrap;gap:12px 22px}
+.course-countries li{display:flex;align-items:center;gap:8px;font-size:.75rem}
+.course-countries img{width:30px;height:21px;object-fit:cover;border-radius:3px;box-shadow:0 0 0 1px #ffffff26}
+@media(max-width:399px){.course-countries ul{gap:12px}.course-countries li{font-size:.69rem}.course-countries img{width:26px;height:18px}}

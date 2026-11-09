@@ -1,0 +1,143 @@
+[
+  {
+    "original": "curso_demarplaning.jpeg",
+    "organizado": "_fonte/imagens_cursos/organizadas/dermaplaning/dermaplaning-capa.jpeg",
+    "modalidade": "dermaplaning",
+    "tipo": "capa",
+    "asset": "assets/cursos/dermaplaning-capa.webp",
+    "width": 840,
+    "height": 1165
+  },
+  {
+    "original": "curso_designsobrancelhas.jpeg",
+    "organizado": "_fonte/imagens_cursos/organizadas/design-de-sobrancelhas/design-de-sobrancelhas-capa.jpeg",
+    "modalidade": "design-de-sobrancelhas",
+    "tipo": "capa",
+    "asset": "assets/cursos/design-de-sobrancelhas-capa.webp",
+    "width": 840,
+    "height": 1165
+  },
+  {
+    "original": "curso_jatodeplasma.jpeg",
+    "organizado": "_fonte/imagens_cursos/organizadas/jato-de-plasma/jato-de-plasma-capa.jpeg",
+    "modalidade": "jato-de-plasma",
+    "tipo": "capa",
+    "asset": "assets/cursos/jato-de-plasma-capa.webp",
+    "width": 840,
+    "height": 1171
+  },
+  {
+    "original": "curso_jatodeplasma_1.jpeg",
+    "organizado": "_fonte/imagens_cursos/organizadas/jato-de-plasma/jato-de-plasma-conteudo-resumo.jpeg",
+    "modalidade": "jato-de-plasma",
+    "tipo": "conteudo-resumo",
+    "asset": "assets/cursos/jato-de-plasma-conteudo-resumo.webp",
+    "width": 717,
+    "height": 998
+  },
+  {
+    "original": "curso_limpezapele.jpeg",
+    "organizado": "_fonte/imagens_cursos/organizadas/limpeza-de-pele/limpeza-de-pele-capa.jpeg",
+    "modalidade": "limpeza-de-pele",
+    "tipo": "capa",
+    "asset": "assets/cursos/limpeza-de-pele-capa.webp",
+    "width": 840,
+    "height": 1167
+  },
+  {
+    "original": "curso_limpezapele_1.png",
+    "organizado": "_fonte/imagens_cursos/organizadas/limpeza-de-pele/limpeza-de-pele-conteudo.png",
+    "modalidade": "limpeza-de-pele",
+    "tipo": "conteudo",
+    "asset": "assets/cursos/limpeza-de-pele-conteudo.webp",
+    "width": 562,
+    "height": 779
+  },
+  {
+    "original": "curso_limpezapele_2.jpeg",
+    "organizado": "_fonte/imagens_cursos/organizadas/limpeza-de-pele/limpeza-de-pele-investimento.jpeg",
+    "modalidade": "limpeza-de-pele",
+    "tipo": "investimento"
+  },
+  {
+    "original": "WhatsApp Image 2026-11-09 at 18.38.04 (3).jpeg",
+    "organizado": "_fonte/imagens_cursos/organizadas/jato-de-plasma/jato-de-plasma-conteudo.jpeg",
+    "modalidade": "jato-de-plasma",
+    "tipo": "conteudo",
+    "asset": "assets/cursos/jato-de-plasma-conteudo.webp",
+    "width": 717,
+    "height": 1004
+  },
+  {
+    "original": "WhatsApp Image 2026-11-09 at 18.38.04.jpeg",
+    "organizado": "_fonte/imagens_cursos/organizadas/limpeza-de-pele/limpeza-de-pele-materiais.jpeg",
+    "modalidade": "limpeza-de-pele",
+    "tipo": "materiais",
+    "asset": "assets/cursos/limpeza-de-pele-materiais.webp",
+    "width": 717,
+    "height": 996
+  },
+  {
+    "original": "WhatsApp Image 2026-11-09 at 18.38.05 (1).jpeg",
+    "organizado": "_fonte/imagens_cursos/organizadas/jato-de-plasma/jato-de-plasma-investimento.jpeg",
+    "modalidade": "jato-de-plasma",
+    "tipo": "investimento"
+  },
+  {
+    "original": "WhatsApp Image 2026-11-09 at 18.38.05.jpeg",
+    "organizado": "_fonte/imagens_cursos/organizadas/jato-de-plasma/jato-de-plasma-materiais.jpeg",
+    "modalidade": "jato-de-plasma",
+    "tipo": "materiais",
+    "asset": "assets/cursos/jato-de-plasma-materiais.webp",
+    "width": 717,
+    "height": 1000
+  },
+  {
+    "original": "WhatsApp Image 2026-11-09 at 18.38.06 (1).jpeg",
+    "organizado": "_fonte/imagens_cursos/organizadas/dermaplaning/dermaplaning-materiais.jpeg",
+    "modalidade": "dermaplaning",
+    "tipo": "materiais",
+    "asset": "assets/cursos/dermaplaning-materiais.webp",
+    "width": 717,
+    "height": 1002
+  },
+  {
+    "original": "WhatsApp Image 2026-11-09 at 18.38.06 (2).jpeg",
+    "organizado": "_fonte/imagens_cursos/organizadas/dermaplaning/dermaplaning-investimento.jpeg",
+    "modalidade": "dermaplaning",
+    "tipo": "investimento"
+  },
+  {
+    "original": "WhatsApp Image 2026-11-09 at 18.38.06 (3).jpeg",
+    "organizado": "_fonte/imagens_cursos/organizadas/design-de-sobrancelhas/design-de-sobrancelhas-conteudo.jpeg",
+    "modalidade": "design-de-sobrancelhas",
+    "tipo": "conteudo",
+    "asset": "assets/cursos/design-de-sobrancelhas-conteudo.webp",
+    "width": 717,
+    "height": 1000
+  },
+  {
+    "original": "WhatsApp Image 2026-11-09 at 18.38.06 (4).jpeg",
+    "organizado": "_fonte/imagens_cursos/organizadas/design-de-sobrancelhas/design-de-sobrancelhas-materiais.jpeg",
+    "modalidade": "design-de-sobrancelhas",
+    "tipo": "materiais",
+    "asset": "assets/cursos/design-de-sobrancelhas-materiais.webp",
+    "width": 717,
+    "height": 1008
+  },
+  {
+    "original": "WhatsApp Image 2026-11-09 at 18.38.06.jpeg",
+    "organizado": "_fonte/imagens_cursos/organizadas/dermaplaning/dermaplaning-conteudo.jpeg",
+    "modalidade": "dermaplaning",
+    "tipo": "conteudo",
+    "asset": "assets/cursos/dermaplaning-conteudo.webp",
+    "width": 717,
+    "height": 998
+  },
+  {
+    "original": "WhatsApp Image 2026-11-09 at 18.38.07.jpeg",
+    "organizado": "_fonte/imagens_cursos/organizadas/design-de-sobrancelhas/design-de-sobrancelhas-investimento.jpeg",
+    "modalidade": "design-de-sobrancelhas",
+    "tipo": "investimento"
+  }
+]
