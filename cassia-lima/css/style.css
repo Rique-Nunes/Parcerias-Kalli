@@ -379,3 +379,21 @@ svg{width:22px;height:22px;flex:none}.svg-sprite{position:absolute;width:0;heigh
 .course-countries li{display:flex;align-items:center;gap:8px;font-size:.75rem}
 .course-countries img{width:30px;height:21px;object-fit:cover;border-radius:3px;box-shadow:0 0 0 1px #ffffff26}
 @media(max-width:399px){.course-countries ul{gap:12px}.course-countries li{font-size:.69rem}.course-countries img{width:26px;height:18px}}
+
+/* Parceria oficial, antes do rodapé nas duas páginas. */
+.kalli-partnership{padding:28px var(--pad);background:var(--ivory)}
+.kalli-partnership-box{position:relative;isolation:isolate;overflow:hidden;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:22px 28px;border:1px solid transparent;border-radius:20px;background:radial-gradient(120% 160% at 0% 0%,#3a2618 0%,var(--cacau) 55%) padding-box,linear-gradient(120deg,#d6ad7499,#d6ad7422 40%,#d6ad7466 75%,#e8c995aa) border-box;box-shadow:0 22px 44px -32px #160e09;transition:box-shadow .4s,translate .4s var(--ease)}
+.kalli-partnership-box::after{content:'';position:absolute;z-index:-1;inset:-40% auto -40% -30%;width:22%;background:linear-gradient(90deg,transparent,#e8c99526,transparent);transform:skewX(-20deg);animation:kalli-sheen 7s ease-in-out 1.5s infinite}
+@keyframes kalli-sheen{0%{left:-30%}35%,100%{left:130%}}
+.kalli-partnership-copy{display:flex;align-items:center;gap:16px;min-width:0}
+.kalli-partnership-logo{display:grid;place-items:center;flex:none;width:54px;height:54px;border-radius:15px;background:#fff;box-shadow:0 0 0 4px #d6ad741f,0 10px 20px -12px #000;transition:rotate .5s var(--ease)}
+.kalli-partnership-logo img{width:34px;height:auto}
+.kalli-partnership-text{display:grid;gap:3px;min-width:0}
+.kalli-partnership-text small{display:inline-flex;align-items:center;gap:6px;font-size:.6rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--mel)}
+.kalli-partnership-text small svg{width:15px;height:15px}
+.kalli-partnership-text p{font:italic 500 1.45rem/1.15 var(--serif);color:var(--champagne)}
+.kalli-partnership-text strong{font-style:normal;font-weight:600;color:var(--mel-2)}
+.kalli-partnership-box>.btn{flex:none;min-height:48px;font-size:.76rem}
+@media(hover:hover) and (pointer:fine){.kalli-partnership-box:hover{translate:0 -2px;box-shadow:0 28px 50px -30px #160e09}.kalli-partnership-box:hover .kalli-partnership-logo{rotate:-6deg}}
+@media(max-width:699px){.kalli-partnership-box{flex-direction:column;align-items:stretch;gap:18px;padding:20px}.kalli-partnership-copy{gap:14px}.kalli-partnership-logo{width:48px;height:48px;border-radius:13px}.kalli-partnership-logo img{width:30px}.kalli-partnership-text p{font-size:1.3rem}.kalli-partnership-box>.btn{width:100%;padding-inline:14px}}
+@media(prefers-reduced-motion:reduce){.kalli-partnership-box::after{display:none}}
