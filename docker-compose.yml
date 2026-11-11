@@ -559,27 +559,6 @@ services:
     restart: always
     volumes:
       - denise_uploads:/app/backend/uploads
-  karoll-tavares:
-    build:
-      context: /opt/Parcerias-Kalli/karoll-tavares
-    image: karoll-tavares:latest
-    container_name: karoll-tavares
-    restart: always
-    security_opt:
-      - no-new-privileges:true
-    labels:
-      - traefik.enable=true
-      - traefik.http.routers.karoll-tavares.rule=Host(`karolltavaress.kalliagendia.com.br`)
-      - traefik.http.routers.karoll-tavares.entrypoints=web,websecure
-      - traefik.http.routers.karoll-tavares.tls=true
-      - traefik.http.routers.karoll-tavares.tls.certresolver=mytlschallenge
-      - traefik.http.services.karoll-tavares.loadbalancer.server.port=80
-    deploy:
-      resources:
-        limits:
-          memory: 64M
-        reservations:
-          memory: 16M
   leticia-boar:
     build:
       context: /opt/Parcerias-Kalli/leticia-boar
@@ -622,111 +601,6 @@ services:
           memory: 64M
         reservations:
           memory: 16M
-  amanda-marins:
-    build:
-      context: /opt/Parcerias-Kalli/amanda-marins
-    image: amanda-marins:latest
-    container_name: amanda-marins
-    restart: always
-    security_opt:
-      - no-new-privileges:true
-    labels:
-      - traefik.enable=true
-      - traefik.http.routers.amanda-marins.rule=Host(`amandamarins.kalliagendia.com.br`)
-      - traefik.http.routers.amanda-marins.entrypoints=web,websecure
-      - traefik.http.routers.amanda-marins.tls=true
-      - traefik.http.routers.amanda-marins.tls.certresolver=mytlschallenge
-      - traefik.http.services.amanda-marins.loadbalancer.server.port=80
-    deploy:
-      resources:
-        limits:
-          memory: 64M
-        reservations:
-          memory: 16M
-  makecomgaby:
-    build:
-      context: /opt/Parcerias-Kalli/makecomgaby
-    image: makecomgaby:latest
-    container_name: makecomgaby
-    restart: always
-    security_opt:
-      - no-new-privileges:true
-    labels:
-      - traefik.enable=true
-      - traefik.http.routers.makecomgaby.rule=Host(`makecomgaby.kalliagendia.com.br`)
-      - traefik.http.routers.makecomgaby.entrypoints=web,websecure
-      - traefik.http.routers.makecomgaby.tls=true
-      - traefik.http.routers.makecomgaby.tls.certresolver=mytlschallenge
-      - traefik.http.services.makecomgaby.loadbalancer.server.port=80
-    deploy:
-      resources:
-        limits:
-          memory: 64M
-        reservations:
-          memory: 16M
-  agda-souza:
-    build:
-      context: /opt/Parcerias-Kalli/agda-souza
-    image: agda-souza:latest
-    container_name: agda-souza
-    restart: always
-    security_opt:
-      - no-new-privileges:true
-    labels:
-      - traefik.enable=true
-      - traefik.http.routers.agda-souza.rule=Host(`agdasouza.kalliagendia.com.br`)
-      - traefik.http.routers.agda-souza.entrypoints=web,websecure
-      - traefik.http.routers.agda-souza.tls=true
-      - traefik.http.routers.agda-souza.tls.certresolver=mytlschallenge
-      - traefik.http.services.agda-souza.loadbalancer.server.port=80
-    deploy:
-      resources:
-        limits:
-          memory: 64M
-        reservations:
-          memory: 16M
-  ana-torres:
-    build:
-      context: /opt/Parcerias-Kalli/ana-torres
-    image: ana-torres:latest
-    container_name: ana-torres
-    restart: always
-    security_opt:
-      - no-new-privileges:true
-    labels:
-      - traefik.enable=true
-      - traefik.http.routers.ana-torres.rule=Host(`anatorres.kalliagendia.com.br`)
-      - traefik.http.routers.ana-torres.entrypoints=web,websecure
-      - traefik.http.routers.ana-torres.tls=true
-      - traefik.http.routers.ana-torres.tls.certresolver=mytlschallenge
-      - traefik.http.services.ana-torres.loadbalancer.server.port=80
-    deploy:
-      resources:
-        limits:
-          memory: 64M
-        reservations:
-          memory: 16M
-  carol-landim:
-    build:
-      context: /opt/Parcerias-Kalli/carol-landim
-    image: carol-landim:latest
-    container_name: carol-landim
-    restart: always
-    security_opt:
-      - no-new-privileges:true
-    labels:
-      - traefik.enable=true
-      - traefik.http.routers.carol-landim.rule=Host(`carollandim.kalliagendia.com.br`)
-      - traefik.http.routers.carol-landim.entrypoints=web,websecure
-      - traefik.http.routers.carol-landim.tls=true
-      - traefik.http.routers.carol-landim.tls.certresolver=mytlschallenge
-      - traefik.http.services.carol-landim.loadbalancer.server.port=80
-    deploy:
-      resources:
-        limits:
-          memory: 64M
-        reservations:
-          memory: 16M
   cassia-lima:
     build:
       context: /opt/Parcerias-Kalli/cassia-lima
@@ -748,111 +622,6 @@ services:
           memory: 64M
         reservations:
           memory: 16M
-  coral-beauty:
-    build:
-      context: /opt/Parcerias-Kalli/coral-beauty
-    image: coral-beauty:latest
-    container_name: coral-beauty
-    restart: always
-    security_opt:
-      - no-new-privileges:true
-    labels:
-      - traefik.enable=true
-      - traefik.http.routers.coral-beauty.rule=Host(`coralbeauty.kalliagendia.com.br`)
-      - traefik.http.routers.coral-beauty.entrypoints=web,websecure
-      - traefik.http.routers.coral-beauty.tls=true
-      - traefik.http.routers.coral-beauty.tls.certresolver=mytlschallenge
-      - traefik.http.services.coral-beauty.loadbalancer.server.port=80
-    deploy:
-      resources:
-        limits:
-          memory: 64M
-        reservations:
-          memory: 16M
-  flavia-medeiros:
-    build:
-      context: /opt/Parcerias-Kalli/flavia-medeiros
-    image: flavia-medeiros:latest
-    container_name: flavia-medeiros
-    restart: always
-    security_opt:
-      - no-new-privileges:true
-    labels:
-      - traefik.enable=true
-      - traefik.http.routers.flavia-medeiros.rule=Host(`flaviamedeiros.kalliagendia.com.br`)
-      - traefik.http.routers.flavia-medeiros.entrypoints=web,websecure
-      - traefik.http.routers.flavia-medeiros.tls=true
-      - traefik.http.routers.flavia-medeiros.tls.certresolver=mytlschallenge
-      - traefik.http.services.flavia-medeiros.loadbalancer.server.port=80
-    deploy:
-      resources:
-        limits:
-          memory: 64M
-        reservations:
-          memory: 16M
-  ingrid-cristina:
-    build:
-      context: /opt/Parcerias-Kalli/ingrid-cristina
-    image: ingrid-cristina:latest
-    container_name: ingrid-cristina
-    restart: always
-    security_opt:
-      - no-new-privileges:true
-    labels:
-      - traefik.enable=true
-      - traefik.http.routers.ingrid-cristina.rule=Host(`ingridcristina.kalliagendia.com.br`)
-      - traefik.http.routers.ingrid-cristina.entrypoints=web,websecure
-      - traefik.http.routers.ingrid-cristina.tls=true
-      - traefik.http.routers.ingrid-cristina.tls.certresolver=mytlschallenge
-      - traefik.http.services.ingrid-cristina.loadbalancer.server.port=80
-    deploy:
-      resources:
-        limits:
-          memory: 64M
-        reservations:
-          memory: 16M
-  pamela-borges:
-    build:
-      context: /opt/Parcerias-Kalli/pamela-borges
-    image: pamela-borges:latest
-    container_name: pamela-borges
-    restart: always
-    security_opt:
-      - no-new-privileges:true
-    labels:
-      - traefik.enable=true
-      - traefik.http.routers.pamela-borges.rule=Host(`pamelaborges.kalliagendia.com.br`)
-      - traefik.http.routers.pamela-borges.entrypoints=web,websecure
-      - traefik.http.routers.pamela-borges.tls=true
-      - traefik.http.routers.pamela-borges.tls.certresolver=mytlschallenge
-      - traefik.http.services.pamela-borges.loadbalancer.server.port=80
-    deploy:
-      resources:
-        limits:
-          memory: 64M
-        reservations:
-          memory: 16M
-  stefani-oliveira:
-    build:
-      context: /opt/Parcerias-Kalli/stefani-oliveira
-    image: stefani-oliveira:latest
-    container_name: stefani-oliveira
-    restart: always
-    security_opt:
-      - no-new-privileges:true
-    labels:
-      - traefik.enable=true
-      - traefik.http.routers.stefani-oliveira.rule=Host(`stefanioliveira.kalliagendia.com.br`)
-      - traefik.http.routers.stefani-oliveira.entrypoints=web,websecure
-      - traefik.http.routers.stefani-oliveira.tls=true
-      - traefik.http.routers.stefani-oliveira.tls.certresolver=mytlschallenge
-      - traefik.http.services.stefani-oliveira.loadbalancer.server.port=80
-    deploy:
-      resources:
-        limits:
-          memory: 64M
-        reservations:
-          memory: 16M
   renato-fuzz:
     build:
       context: /opt/Parcerias-Kalli/renato-fuzz
@@ -868,6 +637,69 @@ services:
       - traefik.http.routers.renato-fuzz.tls=true
       - traefik.http.routers.renato-fuzz.tls.certresolver=mytlschallenge
       - traefik.http.services.renato-fuzz.loadbalancer.server.port=80
+    deploy:
+      resources:
+        limits:
+          memory: 64M
+        reservations:
+          memory: 16M
+  jaqueornela:
+    build:
+      context: /opt/Parcerias-Kalli/jaqueornela
+    image: jaqueornela:latest
+    container_name: jaqueornela
+    restart: always
+    security_opt:
+      - no-new-privileges:true
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.jaqueornela.rule=Host(`jaqueornela.kalliagendia.com.br`)
+      - traefik.http.routers.jaqueornela.entrypoints=web,websecure
+      - traefik.http.routers.jaqueornela.tls=true
+      - traefik.http.routers.jaqueornela.tls.certresolver=mytlschallenge
+      - traefik.http.services.jaqueornela.loadbalancer.server.port=80
+    deploy:
+      resources:
+        limits:
+          memory: 64M
+        reservations:
+          memory: 16M
+  jhenyffervauna-nails:
+    build:
+      context: /opt/Parcerias-Kalli/jhenyffervauna_nails
+    image: jhenyffervauna-nails:latest
+    container_name: jhenyffervauna-nails
+    restart: always
+    security_opt:
+      - no-new-privileges:true
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.jhenyffervauna-nails.rule=Host(`jhenyffervaunanails.kalliagendia.com.br`) || Host(`jhenyffervauna-nails.kalliagendia.com.br`)
+      - traefik.http.routers.jhenyffervauna-nails.entrypoints=web,websecure
+      - traefik.http.routers.jhenyffervauna-nails.tls=true
+      - traefik.http.routers.jhenyffervauna-nails.tls.certresolver=mytlschallenge
+      - traefik.http.services.jhenyffervauna-nails.loadbalancer.server.port=80
+    deploy:
+      resources:
+        limits:
+          memory: 64M
+        reservations:
+          memory: 16M
+  negra-ba:
+    build:
+      context: /opt/Parcerias-Kalli/negra_ba
+    image: negra-ba:latest
+    container_name: negra-ba
+    restart: always
+    security_opt:
+      - no-new-privileges:true
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.negra-ba.rule=Host(`negraba.kalliagendia.com.br`) || Host(`negra-ba.kalliagendia.com.br`)
+      - traefik.http.routers.negra-ba.entrypoints=web,websecure
+      - traefik.http.routers.negra-ba.tls=true
+      - traefik.http.routers.negra-ba.tls.certresolver=mytlschallenge
+      - traefik.http.services.negra-ba.loadbalancer.server.port=80
     deploy:
       resources:
         limits:
@@ -931,6 +763,64 @@ services:
           memory: 64M
     volumes:
       - ceor_uploads:/app/frontend/uploads
+  # ── PorquIA — Backend (Node.js Express API + Telegram Bot) ────────────────
+  porquia-backend:
+    build:
+      context: /opt/PorquIA-fork/backend
+    image: porquia-backend:${TAG_PORQUIA_BACKEND:-latest}
+    container_name: porquia-backend
+    restart: always
+    security_opt:
+      - no-new-privileges:true
+    env_file:
+      - /opt/PorquIA-fork/backend/.env.production
+    labels:
+      - traefik.enable=true
+      # Atende as rotas de API, webhook e health sob porquia.symbionlab.com.br
+      # e também o subdomínio dedicado porquia-api.symbionlab.com.br caso apontado
+      - traefik.http.routers.porquia-backend.rule=(Host(`porquia.symbionlab.com.br`) && (PathPrefix(`/api`) || PathPrefix(`/telegram-webhook`) || PathPrefix(`/health`))) || Host(`porquia-api.symbionlab.com.br`)
+      - traefik.http.routers.porquia-backend.priority=100
+      - traefik.http.routers.porquia-backend.entrypoints=web,websecure
+      - traefik.http.routers.porquia-backend.tls=true
+      - traefik.http.routers.porquia-backend.tls.certresolver=mytlschallenge
+      - traefik.http.services.porquia-backend.loadbalancer.server.port=3000
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+        reservations:
+          memory: 128M
+
+  # ── PorquIA — Frontend (Next.js 16 Web Dashboard) ─────────────────────────
+  porquia-frontend:
+    build:
+      context: /opt/PorquIA-fork/frontend
+      args:
+        NEXT_PUBLIC_API_URL: ${PORQUIA_API_URL:-https://porquia.symbionlab.com.br}
+        NEXT_PUBLIC_FIREBASE_API_KEY: ${PORQUIA_FIREBASE_API_KEY:-}
+        NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN: ${PORQUIA_FIREBASE_AUTH_DOMAIN:-}
+        NEXT_PUBLIC_FIREBASE_PROJECT_ID: ${PORQUIA_FIREBASE_PROJECT_ID:-}
+        NEXT_PUBLIC_FIREBASE_APP_ID: ${PORQUIA_FIREBASE_APP_ID:-}
+    image: porquia-frontend:${TAG_PORQUIA_FRONTEND:-latest}
+    container_name: porquia-frontend
+    restart: always
+    security_opt:
+      - no-new-privileges:true
+    env_file:
+      - /opt/PorquIA-fork/frontend/.env.production
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.porquia-frontend.rule=Host(`porquia.symbionlab.com.br`)
+      - traefik.http.routers.porquia-frontend.entrypoints=web,websecure
+      - traefik.http.routers.porquia-frontend.tls=true
+      - traefik.http.routers.porquia-frontend.tls.certresolver=mytlschallenge
+      - traefik.http.services.porquia-frontend.loadbalancer.server.port=3000
+    deploy:
+      resources:
+        limits:
+          memory: 384M
+        reservations:
+          memory: 64M
 volumes:
   traefik_data:
     external: true

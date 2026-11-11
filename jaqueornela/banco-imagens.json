@@ -1,0 +1,20 @@
+{
+  "jaque-palestrando.webp": { "origem": "_fonte/ig/568720123_18507139594064528_1678813408477955092_n.jpg", "uso": "Abertura e og:image — com o microfone, em palestra (original 828x828; aparece uma participante de costas)" },
+  "desafio-alem-da-mesa.webp": { "origem": "_fonte/ig/540591362_18497849785064528_6151042325062942993_n.jpg", "uso": "Seção Além da Mesa — arte do Desafio" },
+  "jaque-com-alunas.webp": { "origem": "_fonte/ig/656278759_18539777602064528_8870502518392913194_n.jpg", "uso": "Além da Mesa — salão cheio. Aparecem participantes: pedir autorização" },
+  "jaque-imersao-o-resgate.webp": { "origem": "_fonte/ig/535778371_18495618235064528_5018989807571320560_n.jpg", "uso": "Além da Mesa — painel da imersão O Resgate" },
+  "jaque-imersao-governar.webp": { "origem": "_fonte/ig/751692407_18569832106064528_3202687360219912876_n.jpg", "uso": "Além da Mesa — painel da imersão Governar" },
+  "jaque-copacabana-palace.webp": { "origem": "_fonte/ig/562547913_18505047220064528_4707595591451518913_n.jpg", "uso": "Além da Mesa — em frente ao Copacabana Palace" },
+  "jaque-evento-rio.webp": { "origem": "_fonte/ig/568273039_18506688823064528_8297055778107084562_n.jpg", "uso": "Sobre — painel 'Movida pela beleza. Inspirada pelo Rio.'" },
+  "catalogo-de-servicos.webp": { "origem": "_fonte/ig/750493488_18569470789064528_8172895900919676320_n.jpg", "uso": "Atendimento — capa do catálogo de serviços" },
+  "lugar-arte-artista.webp": { "origem": "_fonte/ig/747526397_1682147409740935_4295761686126513285_n.jpg", "uso": "Atendimento — montagem O lugar / A arte / A artista" },
+  "arte-proposito.webp": { "origem": "_fonte/ig/763847967_18574081402064528_4723654437784955366_n.jpg", "uso": "NÃO usada como imagem: a frase dela ('Deus não te deu talento para esconder...') foi recriada em texto na seção da frase. Fica disponível em assets para uso futuro" },
+  "unhas-perolado-cromado.webp": { "origem": "_fonte/ig/528320502_18493203001064528_6483340494539384902_n.jpg", "uso": "Resultados" },
+  "unhas-francesinha-amendoada.webp": { "origem": "_fonte/ig/543820398_18498925909064528_2234679925294152601_n.jpg", "uso": "Resultados" },
+  "unhas-marmorizado-branco.webp": { "origem": "_fonte/ig/542329464_18499115542064528_8591707350951983985_n.jpg", "uso": "Resultados" },
+  "unhas-francesinha-flores-ouro.webp": { "origem": "_fonte/ig/582646190_2062988727577840_7517771246523605034_n.jpg", "uso": "Resultados (original pequeno, 640x1136)" },
+  "unhas-leitosas-amendoadas.webp": { "origem": "_fonte/ig/532261903_1071170191887503_5516410531610393076_n.jpg", "uso": "Resultados (original pequeno, 640x1136)" },
+  "unhas-rosadas-folha-de-ouro.webp": { "origem": "_fonte/ig/729799659_18564529771064528_572448400209336036_n.jpg", "uso": "Resultados" },
+  "kalli-logo.png": { "origem": "cassia-lima/assets/img/kalli-logo.png", "uso": "Selo de parceria" },
+  "_regras": "Imagens só redimensionadas e convertidas para WebP; os recortes arredondados são do CSS. Os nomes dos trabalhos na galeria são descrições nossas."
+}
