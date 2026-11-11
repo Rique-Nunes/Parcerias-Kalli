@@ -234,3 +234,70 @@ svg{width:20px;height:20px;flex:none}.svg-sprite{position:absolute;width:0;heigh
  .bow-track{width:auto;flex-wrap:wrap;justify-content:center;padding-inline:var(--gutter)}.bow-track>:nth-child(n+11){display:none}
  .has-js .reveal:not(.is-in){opacity:1;translate:none}
 }
+
+/* =========================================================
+   2ª rodada (11/11/2026): mais presença e mais marca
+   ========================================================= */
+body{font-size:17px}
+.section h2{font-size:clamp(2.7rem,10.5vw,5rem)}
+.lead{font-size:1.04rem}
+/* Abertura: arco duplo, laço e cartão da próxima turma */
+.hero{background:radial-gradient(80% 60% at 82% 38%,var(--lilac) 0%,transparent 62%),linear-gradient(180deg,var(--paper),var(--cream))}
+.hero-figure{padding:0 0 26px}
+.hero-arch{box-shadow:0 0 0 8px var(--paper),0 0 0 9px var(--champ),18px 18px 0 0 var(--champ)}
+.hero-bow{position:absolute;z-index:2;left:50%;top:-22px;width:92px;height:auto;translate:-50% 0;filter:drop-shadow(0 8px 10px #2a201a22)}
+.seal{bottom:auto;top:54px;right:-8px}
+.hero-card{position:absolute;z-index:2;left:-6px;bottom:0;display:grid;gap:3px;max-width:230px;padding:14px 16px;border-radius:18px;background:var(--ink);color:var(--paper);text-decoration:none;box-shadow:0 24px 34px -22px var(--ink);transition:translate .3s var(--ease)}
+.hero-card small{font-size:.58rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--champ)}
+.hero-card strong{font:400 1.25rem/1.1 var(--serif)}
+.hero-card span{display:inline-flex;align-items:center;gap:6px;font-size:.72rem;color:#d9cdbd}.hero-card svg{width:15px;height:15px}
+.hero h1{font-size:clamp(3.2rem,14.5vw,6rem)}
+.hero-facts strong{font-size:1.9rem}
+/* Jornal */
+.paper{rotate:-.6deg}
+.press>*{min-width:0}
+.press .headline{font-size:clamp(1.9rem,8.6vw,5.6rem);overflow-wrap:break-word}
+.stamp{position:absolute;z-index:2;right:-8px;top:-30px;display:grid;place-items:center;width:78px;height:78px;border:2px solid var(--red);border-radius:50%;color:var(--red);font:600 .62rem/1.15 var(--news);letter-spacing:.12em;text-transform:uppercase;text-align:center;rotate:14deg;background:#f8f5ee;box-shadow:0 0 0 4px #f8f5ee}
+.paper-foot{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:20px;padding-top:12px;border-top:3px double var(--ink);font:500 .78rem/1.2 var(--news);letter-spacing:.14em;text-transform:uppercase}
+.paper-foot span+span::before{content:'•';margin-right:18px;color:var(--red)}
+/* Cursos */
+.course-duo{display:grid;gap:18px}
+.course-mono{display:grid;gap:8px;align-content:center;justify-items:start;padding:22px;border-radius:18px;background:var(--cream);border:1px solid var(--line)}
+.course-mono b{font:400 4.4rem/.9 var(--serif);font-style:italic;color:var(--gold-d)}
+.course-mono span{font-size:.66rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--soft);line-height:1.5}
+.course h3{font-size:clamp(2.1rem,8vw,2.9rem)}
+/* Na aula */
+.lesson{background:var(--lilac);display:grid;gap:30px}
+.lesson-steps{display:grid;gap:14px}
+.lesson-steps li{position:relative;display:grid;grid-template-columns:54px 1fr;gap:2px 16px;align-items:center;padding:18px 20px;background:#f8f5ee;border-radius:22px;border:1px solid var(--lilac-d)}
+.lesson-steps li>span{grid-row:span 2;display:grid;place-items:center;width:54px;height:54px;border-radius:50%;background:var(--ink);color:var(--champ);font:italic 400 1.9rem/1 var(--serif)}
+.lesson-steps strong{display:block;font:400 1.7rem/1.05 var(--serif)}
+.lesson-steps p{font-size:.9rem;color:var(--soft)}
+/* Galeria: arcos iguais */
+.work-grid li:nth-child(even) .zoom{border-radius:var(--arch)}
+.work-grid .zoom{box-shadow:0 0 0 6px var(--paper),0 0 0 7px var(--champ)}
+.work-grid{padding-top:12px}
+/* História */
+.story blockquote{font-size:clamp(2.4rem,9.5vw,4rem)}
+@media(hover:hover) and (pointer:fine){.hero-card:hover{translate:0 -3px}}
+@media(max-width:599px){.stamp{width:66px;height:66px;font-size:.54rem}}
+@media(min-width:900px){
+ .hero h1{font-size:clamp(4.6rem,7.2vw,7.2rem)}
+ .hero .lead{font-size:1.12rem;max-width:44ch}
+ .hero-figure{padding-bottom:0}
+ .hero-bow{width:120px;top:-30px}
+ .seal{top:auto;bottom:70px;right:auto;left:-60px}
+ .hero-card{left:auto;right:-44px;bottom:44px;max-width:240px}
+ .stamp{width:104px;height:104px;font-size:.8rem;right:-34px;top:-44px}
+ .press{grid-template-columns:1.5fr .5fr;gap:56px}
+ .course-duo{grid-template-columns:1fr 1fr;gap:22px}
+ .course-duo .course,.course-duo .course:not(:has(.course-img)){grid-template-columns:1fr;gap:18px;align-content:start}
+ .course-duo .course-num{font-size:3.4rem;margin-bottom:-8px}
+ .course-duo .course-img img{aspect-ratio:16/10;object-fit:cover;object-position:50% 30%}
+ .lesson{grid-template-columns:.8fr 1.2fr;align-items:center;gap:70px}
+ .lesson-steps{grid-template-columns:repeat(3,1fr);gap:18px}
+ .lesson-steps li:nth-child(2){margin-top:44px}.lesson-steps li:nth-child(3){margin-top:88px}
+ .lesson-steps li{display:block;text-align:center;padding:34px 18px 30px;border-radius:999px 999px 22px 22px}
+ .lesson-steps li>span{margin:0 auto 14px}.lesson-steps strong{font-size:1.9rem;margin-bottom:8px}.lesson-steps p{max-width:24ch;margin-inline:auto}
+ .work-grid{gap:34px 26px}
+}
