@@ -1,0 +1,18 @@
+{
+  "paloma-blazer-verde.webp": { "origem": "_fonte/ig/669654034_18068815556657092_6155293134474367399_n.jpg", "uso": "Abertura e og:image — sentada, de blazer verde" },
+  "paloma-poltrona.webp": { "origem": "_fonte/ig/681229361_18070692302657092_1442901878487942741_n.jpg", "uso": "Sobre — na poltrona de couro" },
+  "paloma-estetica-in-sp.webp": { "origem": "_fonte/ig/671656792_18068775662657092_2898364042633230305_n.jpg", "uso": "Além da sala — em frente ao painel da feira Estética in SP" },
+  "aluna-certificado-1.webp": { "origem": "_fonte/ig/587415267_18052693895657092_1393305218658594488_n.jpg", "uso": "Alunas — com certificado. Pedir autorização da aluna" },
+  "alunas-certificado-2.webp": { "origem": "_fonte/ig/670487679_18069542879657092_1454272369384400637_n.jpg", "uso": "Alunas — com certificados. Pedir autorização das alunas" },
+  "labios-antes-depois.webp": { "origem": "_fonte/ig/606482277_18056390351657092_8922711353656160241_n.jpg", "uso": "Destaque Hydra Gloss Color — antes e depois de lábios (não identifica a cliente). Confirmar que é mesmo desse procedimento" },
+  "arte-dermaplaning.webp": { "origem": "_fonte/ig/602888411_18055494038657092_6061638519102359601_n.jpg", "uso": "Destaque Dermaplaning — arte dela" },
+  "arte-organismo-inteiro.webp": { "origem": "_fonte/ig/604182356_18055493624657092_6787653359987962597_n.jpg", "uso": "Método — arte com a frase 'Você não trata pele! Você trata um organismo inteiro.'" },
+  "paloma-cracha-evento.webp": { "origem": "_fonte/ig/669997776_18068884328657092_4355373822928461218_n.jpg", "uso": "NÃO usada (convertida e disponível): de crachá em evento" },
+  "labios-hydra-gloss.webp": { "origem": "_fonte/ig/583276952_1351800616621813_6767284451535289651_n.jpg", "uso": "NÃO usada (convertida e disponível): close de lábios, original pequeno (640x1136)" },
+  "_nao_convertidas": {
+    "607198989 (antes e depois de rosto)": "Mostra o rosto inteiro de uma cliente. Ficou de fora por identificar a pessoa.",
+    "607794768 (capa 'Hydra Gloss Color: como aumentar a durabilidade do pigmento?')": "É capa de um post específico, com pergunta que o site não responde.",
+    "564540239 (arte 'Nunca pensei em ser professora...')": "A frase foi recriada em texto na seção Sobre."
+  },
+  "_regras": "Imagens só redimensionadas e convertidas para WebP; recortes são do CSS."
+}

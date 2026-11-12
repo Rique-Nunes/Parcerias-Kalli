@@ -1,0 +1,96 @@
+{
+  "estudio-parede-logo.webp": {
+    "origem": "_fonte/ig/721841777_1048707014485632_7818485909251943457_n.jpg",
+    "uso": "Estúdio — parede com o logo (original pequeno, 640x1136, com legenda 'Estúdio Brilho Perfeito' já na imagem)"
+  },
+  "estudio-stiletto-nude.webp": {
+    "origem": "_fonte/ig/699840663_18080557331542873_273269012939443211_n.jpg",
+    "uso": "Estúdio — Feito no estúdio (conta @estudio_brilhoperfeito)"
+  },
+  "estudio-vermelho-classico.webp": {
+    "origem": "_fonte/ig/696536973_18080117891542873_7402272479263602141_n.jpg",
+    "uso": "Estúdio — Feito no estúdio"
+  },
+  "estudio-francesinha-brilhos.webp": {
+    "origem": "_fonte/ig/682022418_18079077167542873_5058198954553720859_n.jpg",
+    "uso": "Estúdio — Feito no estúdio (aparece tatuagem nos dedos da cliente)"
+  },
+  "estudio-cromado-bronze.webp": {
+    "origem": "_fonte/ig/703988593_18081304235542873_2786970993176182265_n.jpg",
+    "uso": "Estúdio — Feito no estúdio"
+  },
+  "anna-cafe-jornal.webp": {
+    "origem": "_fonte/ig/684284730_18579997447000951_7089020722354807616_n.jpg",
+    "uso": "Abertura e og:image — no café, de saia rosa, lendo o jornal da brincadeira de Dia das Mães"
+  },
+  "turma-certificados-1.webp": {
+    "origem": "_fonte/ig/653689866_18566580115000951_5415356833725153426_n.jpg",
+    "uso": "Turmas — alunas com certificado. Pedir autorização"
+  },
+  "turma-certificados-2.webp": {
+    "origem": "_fonte/ig/719789426_18589549960000951_4039298920813031167_n.jpg",
+    "uso": "Turmas — Anna com alunas e certificados. Pedir autorização"
+  },
+  "turma-certificados-3.webp": {
+    "origem": "_fonte/ig/731068386_18596369179000951_5169868367183824218_n.jpg",
+    "uso": "Turmas — Anna sentada com alunas. Pedir autorização"
+  },
+  "anna-com-alunas-evento.webp": {
+    "origem": "_fonte/ig/649133784_18564606970011412_4968833637402726373_n.jpg",
+    "uso": "Turmas — grupo em evento. Publicada por outra conta (código 11412); confirmar contexto e autorização"
+  },
+  "anna-beauty-nail-art.webp": {
+    "origem": "_fonte/ig/683583939_18577785493000951_6680520975125266704_n.jpg",
+    "uso": "Sobre — painel de evento de nail art"
+  },
+  "anna-palco.webp": {
+    "origem": "_fonte/ig/707510313_17879767902597172_3180803270282880042_n.webp",
+    "uso": "Sobre — no palco com microfone. Publicada por outra conta"
+  },
+  "anna-magistra.webp": {
+    "origem": "_fonte/ig/645746637_18563647741000951_6360732896794903228_n.jpg",
+    "uso": "Sobre — evento com banner Magistra / Nova Classe"
+  },
+  "anna-acabamento.webp": {
+    "origem": "_fonte/ig/718277509_1045105498178179_2621310983052449908_n.jpg",
+    "uso": "Estúdio — colagem ao lado do logo (original pequeno, 640x1136)"
+  },
+  "arte-blindagem.webp": {
+    "origem": "_fonte/ig/695628327_18581619139000951_5219526967039030086_n.jpg",
+    "uso": "Estúdio — colagem ao lado do logo; também é a fonte da 2ª frase da seção de frases"
+  },
+  "unhas-leitosas.webp": {
+    "origem": "_fonte/ig/755946789_18604288561000951_2312042429574343814_n.jpg",
+    "uso": "Unhas"
+  },
+  "unhas-coracoes.webp": {
+    "origem": "_fonte/ig/721119777_18590422417000951_6853168837636129436_n.jpg",
+    "uso": "Unhas"
+  },
+  "unhas-verde-oliva.webp": {
+    "origem": "_fonte/ig/707407060_18585337279000951_7848844896349162325_n.jpg",
+    "uso": "Unhas"
+  },
+  "unhas-borboleta.webp": {
+    "origem": "_fonte/ig/719032644_18589823884000951_4140807100277381826_n.jpg",
+    "uso": "Unhas"
+  },
+  "unhas-vermelho-cereja.webp": {
+    "origem": "_fonte/ig/709756162_18585952219000951_4008265199710103762_n.jpg",
+    "uso": "Unhas"
+  },
+  "anna-demonstracao.webp": {
+    "origem": "_fonte/ig/705718113_1532563341909991_126483201078383381_n.jpg",
+    "uso": "NÃO usada (convertida e disponível): Anna demonstrando em um evento"
+  },
+  "_nao_convertidas": {
+    "648737962 (arte Molde F1 Pro)": "Tem a data '16 de março' na arte; usar traria uma data vencida. O conteúdo do curso foi escrito em texto.",
+    "659594735 (arte Redução de Tempo)": "Tem a data '13 de abril' na arte; mesmo motivo.",
+    "775012102 (arte 'Acho chique o básico bem executado')": "A frase foi recriada em texto na seção de frases."
+  },
+  "kalli-logo.png": {
+    "origem": "cassia-lima/assets/img/kalli-logo.png",
+    "uso": "Selo de parceria"
+  },
+  "_regras": "Imagens só redimensionadas e convertidas para WebP; os recortes em 'lapidação' são do CSS. Os nomes dos trabalhos na galeria são descrições nossas."
+}

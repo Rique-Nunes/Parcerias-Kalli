@@ -706,6 +706,48 @@ services:
           memory: 64M
         reservations:
           memory: 16M
+  anna-mallmann:
+    build:
+      context: /opt/Parcerias-Kalli/anna-mallmann
+    image: anna-mallmann:latest
+    container_name: anna-mallmann
+    restart: always
+    security_opt:
+      - no-new-privileges:true
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.anna-mallmann.rule=Host(`annamallmann.kalliagendia.com.br`) || Host(`anna-mallmann.kalliagendia.com.br`)
+      - traefik.http.routers.anna-mallmann.entrypoints=web,websecure
+      - traefik.http.routers.anna-mallmann.tls=true
+      - traefik.http.routers.anna-mallmann.tls.certresolver=mytlschallenge
+      - traefik.http.services.anna-mallmann.loadbalancer.server.port=80
+    deploy:
+      resources:
+        limits:
+          memory: 64M
+        reservations:
+          memory: 16M
+  paloma-ribeiro:
+    build:
+      context: /opt/Parcerias-Kalli/paloma-ribeiro
+    image: paloma-ribeiro:latest
+    container_name: paloma-ribeiro
+    restart: always
+    security_opt:
+      - no-new-privileges:true
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.paloma-ribeiro.rule=Host(`palomaribeiro.kalliagendia.com.br`) || Host(`paloma-ribeiro.kalliagendia.com.br`)
+      - traefik.http.routers.paloma-ribeiro.entrypoints=web,websecure
+      - traefik.http.routers.paloma-ribeiro.tls=true
+      - traefik.http.routers.paloma-ribeiro.tls.certresolver=mytlschallenge
+      - traefik.http.services.paloma-ribeiro.loadbalancer.server.port=80
+    deploy:
+      resources:
+        limits:
+          memory: 64M
+        reservations:
+          memory: 16M
   # ── CEOR — 2ª Via de Boletos (Ambiente de Testes / Sandbox) ────────────────
   ceor-boletos:
     build:
