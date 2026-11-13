@@ -33,9 +33,9 @@ document.addEventListener("click", (e) => { if (nav.classList.contains("is-open"
 /* Entradas e barra fixa */
 if ("IntersectionObserver" in window) {
   const io = new IntersectionObserver((es, o) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("is-in"); o.unobserve(e.target); } }), { threshold: 0.01, rootMargin: "0px 0px -6% 0px" });
-  $$(".section > *, .course, .pillar, .stage, .feed li, .faq").forEach((el, i) => {
+  $$(".section > *, .course, .pillar, .stage, .faq").forEach((el, i) => {
     el.classList.add("reveal");
-    if (el.matches(".course, .pillar, .stage, .feed li, .faq")) el.style.setProperty("--d", `${(i % 4) * 80}ms`);
+    if (el.matches(".course, .pillar, .stage, .faq")) el.style.setProperty("--d", `${(i % 4) * 80}ms`);
     io.observe(el);
   });
   const dock = $("#dock"), hide = new Set();

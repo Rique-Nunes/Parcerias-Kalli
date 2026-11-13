@@ -45,4 +45,4 @@ Antes/depois de testa e lábios (resultado de paciente), artes com rosto de paci
 
 ## Testes
 Playwright em 360, 390, 768, 1024, 1440 e 1920 px: sem rolagem horizontal, sem erro de console, fluxo do formulário ok
-(as fontes do Google não carregam no ambiente de teste; conferir Poppins no navegador real).
+(conferir a fonte das etiquetas, DM Mono, no navegador real: ela não carrega no ambiente de teste).
